@@ -1,0 +1,55 @@
+/* content-tile-panel-item-file-download.component.less
+
+  ================================================== */
+  // Layout > Resource listing panel
+  .content-tile-panel-item-file-download-v2 {
+
+    figure, .content-tile__figure {
+      .flex;
+      @media (max-width: (@tablet - 1)) { .flex-column; }
+    }
+
+    picture {
+      width: 25%;
+      @media (max-width: (@tablet - 1)) { .flex-column--caption; }
+    }
+
+    figcaption, .content-tile__figcaption { width: 75%; }
+
+    .content-tile__title {
+      font-family: @typefamily-sans;
+      font-weight: @typeweight--semi-bold;
+      font-size: @typesize-h6;
+      line-height: @leading--default;
+      color: @color--soft-black;
+    }
+
+    .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+
+    picture {
+      + figcaption,
+      + .content-tile__figcaption { .px-30; }
+    }
+
+    .content-tile-text {
+      // Override global margin rule
+      * + * { margin-top: 0; }
+
+      a {
+        display: block;
+        position: relative;
+        border-bottom: 1px solid @color--grey-75;
+        padding: 15px 0;
+
+        @media (max-width: @tablet) { font-size: @typesize-h6; }
+      }
+
+      // Removes last item bottom border
+      // in two cases:
+      // - when there is a couple of a tags and 
+      // in case where a tags are wrapped with p tag
+      a + a:last-of-type,
+      p:last-child > a { border-bottom: none; }
+    }
+
+  }

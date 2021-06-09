@@ -1,0 +1,40 @@
+/* content-tile-panel-item-simple.component.less
+
+  ================================================== */
+  // Layout > Panel item
+  .content-tile-panel-item-simple {
+    .panel-item-mixin; // Shared mixin rules
+    .content-tile__title {
+      font-size: @typesize-h5;
+      font-weight: @typeweight--default;
+      color: @color--soft-black;
+      border-bottom: none;
+      padding: 0;
+    }
+    .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+  }
+
+  // Layout > Panel item (blue)
+  .content-tile-panel-item-simple--blue-title {
+    .content-tile__title {
+      font-size: @typesize-h5;
+      font-weight: @typeweight--default;
+      color: @color--soft-black;
+      background: @color--ice-blue;
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+    .content-tile-subtitle {
+      font-weight: @typeweight--semi-bold;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    .content-tile-text {
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+    }
+    a:hover { text-decoration: none;
+      p { text-decoration: underline; }
+    }
+  }

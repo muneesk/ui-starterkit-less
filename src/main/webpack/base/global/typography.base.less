@@ -1,0 +1,190 @@
+/* typography.base.less
+
+  ================================================== */
+// Scale
+  h1, .h1, .h1 *, .alpha, .alpha * {
+    font-family: @typefamily-serif;
+    font-weight: @typeweight--light;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: (@tablet + 1)) { font-size: @typesize-h1; }
+    @media (max-width: @tablet) { font-size: @typesize-h2; }
+  }
+        
+  .h2-plus, .h2-plus *, .beta-plus, .beta-plus * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--light;
+    line-height: @leading--1-2; 
+    color: @color--soft-black;
+    @media (min-width: (@tablet + 1)) { font-size: @typesize-h2-plus; }
+    @media (max-width: @tablet) { font-size: 3.8rem; }
+  }
+
+  h2, .h2, .h2 *, .beta, .beta * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--light;
+    line-height: @leading--1-2;
+    color: @color--cappuccino;
+    @media (min-width: (@tablet + 1)) { font-size: @typesize-h2; }
+    @media (max-width: @tablet) { font-size: 3.4rem; }
+  }
+
+  h3, .h3, .h3 *, .gamma, .gamma * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--default;
+    line-height: @leading--1-3;
+    color: @color--soft-black;
+    @media (min-width: (@tablet + 1)) { font-size: @typesize-h3; }
+    @media (max-width: @tablet) { font-size: 2.8rem; }
+  }
+
+  h4, .h4, .h4 *, .delta, .delta * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--default;
+    font-size: @typesize-h4;
+    line-height: @leading--1-3;
+    color: @color--soft-black;
+  }
+
+  h5, .h5, .h5 *, .epsilon, .epsilon * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--default;
+    line-height: @leading--1-4;
+    color: @color--cappuccino;
+    @media (min-width: (@tablet + 1)) { font-size: @typesize-h5; }
+    @media (max-width: @tablet) { font-size: 2rem; }
+  }
+
+  h6, .h6, .h6 *, .zeta, .zeta * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--semi-bold;
+    font-size: @typesize-h6;
+    line-height: @leading--default;
+    color: @color--soft-black;
+  }
+
+  p, .p, .p *,
+  blockquote,
+  figcaption,
+  cite,
+  dl, ol, ul {
+    font-family: @typefamily-sans;
+    font-weight: normal;
+    font-size: @typesize-default;
+    font-weight: @typeweight--default;
+    line-height: @leading--default;
+    color: @color--cappuccino;
+  }
+
+// Expanded scale
+  .exa, .exa * {
+    font-family: @typefamily-serif;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-exa; }
+    @media (min-width: 540px) and (max-width: (@tablet - 1)) { font-size: @typesize-giga; }
+    @media (max-width: 539px) { font-size: @typesize-h1; }
+  }
+
+  .peta, .peta * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--light;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-peta; }
+    @media (min-width: 540px) and (max-width: (@tablet - 1)) { font-size: @typesize-mega; }
+    @media (max-width: 539px) { font-size: @typesize-h1; }
+  }
+
+  .tera, .tera * {
+    font-family: @typefamily-serif;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-tera; }
+    @media (min-width: 540px) and (max-width: (@tablet - 1)) { font-size: @typesize-kilo; }
+    @media (max-width: 539px) { font-size: @typesize-h1; }
+  }
+
+  .giga, .giga * {
+    font-family: @typefamily-sans;
+    font-weight: @typeweight--light;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-giga; }
+    @media (max-width: (@tablet - 1)) { font-size: @typesize-h1; }
+  }
+
+  .mega, .mega * {
+    font-family: @typefamily-serif;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-mega; }
+    @media (max-width: (@tablet - 1)) { font-size: @typesize-h1; }
+  }
+
+  .kilo, .kilo * {
+    font-family: @typefamily-serif;
+    line-height: @leading--1-2;
+    color: @color--soft-black;
+    @media (min-width: @tablet) { font-size: @typesize-kilo; }
+    @media (max-width: (@tablet - 1)) { font-size: @typesize-h1; }
+  }
+
+  .minor, .minor * {
+    font-family: @typefamily-sans;
+    font-size: @typesize-minor;
+    line-height: @leading--default;
+  }
+
+  .milli-plus, .milli-plus * {
+    font-family: @typefamily-sans;
+    font-size: @typesize-milli-plus;
+    line-height: @leading--default;
+  }
+
+  .milli, .milli * {
+    font-family: @typefamily-sans;
+    font-size: @typesize-milli;
+    line-height: @leading--default;
+  }
+
+  .small, .small * {
+    font-family: @typefamily-sans;
+    font-size: @typesize-small;
+    line-height: @leading--default;
+  }
+
+  .micro, .micro * {
+    font-family: @typefamily-sans;
+    font-size: @typesize-micro;
+    line-height: @leading--default;
+  }
+
+// Bold, strong
+  b, strong { font-weight: @typeweight--semi-bold; }
+
+// Other
+  blockquote p {
+
+    &::before {
+      content: "\201C";
+      display: inline-block;
+      text-indent: -.5em;
+    }
+
+    &::after {
+      content: "\201D";
+      display: inline;
+    }
+
+  }
+
+  cite, .cite > * {
+    line-height: 1.4;
+    &::before {
+      content: "\2014";
+      color: @color--grey-50;
+      padding-right: 4px;
+      padding-right: .25rem;
+    }
+  }

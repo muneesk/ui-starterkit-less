@@ -1,0 +1,93 @@
+/* content-tile-behavior-expander.component.less
+
+  Styles > Behavior > (various options)
+
+  ================================================== */
+  .behavior--image-expander,
+  .behavior--show-more__image-expander {
+    picture { position: relative; }
+  }
+
+  // Expand control (containing link)
+  .expander-pic-expand {
+    width: 48px;
+    height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    background-color: @color--chalk-white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 0;
+    cursor: pointer;
+
+    // Expander icon
+    i {
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-45%, -50%);
+      background-image: url("@{image-path}/
+icon-enlarge--pearson-blue.svg");
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: 24px 24px;
+      .transition(0.3s);
+    }
+
+  }
+
+  // Associated modal container for image-expander
+  .image-expander__dialog.image-expander__dialog {
+    background-color: transparent;
+    border-top: none;
+    padding: 0;
+
+    &.current-dialog {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      @media(min-width: @tablet) { width: 90vw; }
+    }
+
+  }
+
+  // Inner wrap for image-expander container
+  .image-expander__inner-wrap {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    position: relative;
+    border-top: 8px solid @color--pearson-blue;
+    background-color: @color--chalk-white;
+    .p-60();
+    margin: auto;
+
+    img {
+      display: block;
+      height: 100%;
+    }
+
+  }
+
+  // .behavior--show-more (text) toggle
+  .text-toggle__trigger {
+    .button;
+    .button--unstyled;
+    font-weight: @typeweight--default;
+    color: @color--pearson-blue-link !important; // Necessary override for .button--unstyled call
+
+    @media(max-width: @mobile) { text-align: left; }
+
+    &-container { margin-top: 20px; }
+
+  }

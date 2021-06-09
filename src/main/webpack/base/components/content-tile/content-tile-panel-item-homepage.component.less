@@ -1,0 +1,50 @@
+/* content-tile-panel-item-homepage.component.less
+
+  ================================================== */
+  .content-tile {
+    // Layout > Feature panel (link)
+    &.content-tile-panel-item-homepage {
+      .panel-item-mixin; // Shared mixin rules
+
+      figcaption, .content-tile__figcaption { .p-30; }
+
+      .content-tile__title {
+        font-family: @typefamily-sans;
+        font-weight: @typeweight--light;
+        line-height: @leading--1-2; 
+        color: @color--soft-black;
+        border-bottom: none;
+        @media (min-width: (@tablet + 1)) { font-size: @typesize-h2-plus; }
+        @media (max-width: @tablet) { font-size: @typesize-h3; }
+      }
+
+      .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+
+      @media (max-width: @tablet) {
+        picture { height: 110px; }
+      }
+
+    }
+
+    // Layout > Feature panel (button)
+    &.content-tile-panel-item-homepage-v2 {
+      .content-tile-panel-item-homepage;
+      p:last-of-type {
+        a:last-of-type {
+          .button;
+          color: @color--soft-black;
+          background-color: transparent;
+          border-color: currentColor;
+
+          &:hover, &:active, &:focus {
+            color: @color--chalk-white;
+            background-color: @color--soft-black;
+            border-color: transparent;
+          }
+
+          &::after, &::before { display: none; }
+        }
+      }
+    }
+   
+}

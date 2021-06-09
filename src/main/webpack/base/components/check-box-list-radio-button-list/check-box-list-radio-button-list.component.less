@@ -1,0 +1,155 @@
+/* check-box-list-radio-button-list.component.less
+
+  AEM Core form element(s)
+  ================================================== */
+  // AEM CORE form component = .check-box-list
+  // AEM CORE form component = .radio-button-list
+  .check-box-list,
+  .radio-button-list {
+
+    // = .checkbox or .checkbox-inline
+    label {
+      .flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      max-width: -webkit-fit-content;
+      max-width: -moz-fit-content;
+      max-width: fit-content;
+
+      // Sibling margin
+      &:not([class*="-inline"]) + label { margin-top: 5px; }
+
+      &[class*="-inline"] {
+        .flex-inline;
+        + [class*="-inline"] { margin-left: 15px; }
+        [type="checkbox"],
+        [type="radio"] {
+          -webkit-transform: none;
+          transform: none;
+        }
+
+      }
+
+    }
+
+    [type="checkbox"],
+    [type="radio"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      background-color: @color--chalk-white;
+      border: 2px solid @color--grey-70;
+      border-radius: 2px;
+      margin: 0 7.5px 0 0;
+      -webkit-transform: translateY(-2.5px);
+      transform: translateY(-2.5px);
+      -webkit-transition: background-color 0.125s ease-in-out, border-color 0.125s ease-in-out;
+      transition: background-color 0.125s ease-in-out, border-color 0.125s ease-in-out;
+
+      &:checked {
+        background-color: @color--dodger-blue;
+        border-color: @color--dodger-blue;
+        background-image: url("@{image-path}/
+icon-check--white.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: scroll;
+        background-size: 14px;
+
+        // IE11 + Edge
+        &::-ms-check {
+          background-color: @color--dodger-blue;
+          border-color: @color--dodger-blue;
+          background-image: url("@{image-path}/
+icon-check--white.svg");
+          background-repeat: no-repeat;
+          background-size: 14px;
+          background-position: center center;
+          background-attachment: scroll;
+          outline: none;
+          color: transparent;
+
+          &::after {
+            border-right: none;
+            border-bottom: none;
+            transform: none;
+          }
+
+          // Windows "High Contrast White" theme
+          @media screen and (-ms-high-contrast: black-on-white) { background-image: url("@{image-path}/
+icon-check--black.svg"); }
+
+          // Windows "High Contrast Black" theme
+          @media screen and (-ms-high-contrast: white-on-black) { background-image: url("@{image-path}/
+icon-check--white.svg"); }
+
+        }
+
+      }
+
+      &:focus { outline: 0; }
+
+      // IE11 + Edge appearance
+      &::-ms-check {
+        -webkit-appearance: none;
+        background-color: @color--chalk-white;
+        border: 2px solid @color--grey-70;
+      }
+
+    }
+
+    [type="radio"] {
+      position: relative;
+      border-radius: 50%;
+
+      &:checked {
+        background-color: transparent;
+        background-image: none;
+
+        // IE11 + Edge
+        &::-ms-check {
+          background-image: none;
+          outline: none;
+          color: transparent;
+
+          &::after {
+            display: inline-block;
+            border-radius: 50%;
+            background-color: @color--dodger-blue;
+            content: "";
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+          }
+
+          // Windows "High Contrast White" theme
+          @media screen and (-ms-high-contrast: black-on-white) { background-image: none; }
+
+          // Windows "High Contrast Black" theme
+          @media screen and (-ms-high-contrast: white-on-black) { background-image: none; }
+
+        }
+
+        &::after {
+          display: inline-block;
+          border-radius: 50%;
+          background-color: @color--dodger-blue;
+          content: "";
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+        }
+
+      }
+
+    }
+
+  }

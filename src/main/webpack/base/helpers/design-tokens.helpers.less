@@ -1,0 +1,52 @@
+/* design-tokens.helpers.less
+
+  ================================================== */
+  // These helper classes should be available for 
+  // both Text and Content Tile Components.
+  // They will allow authors to render a directional
+  // pointer similar to the "Highlights" -- Content 
+  // Tile "Color Block" styles
+  
+  .color-block-arrow() {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 40px;//?
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    z-index: 10;
+  }
+
+  // Left arrow
+  .color-block-arrow-left {
+    &::before {
+      .color-block-arrow;
+      left: 0;
+      border-right-width: 15px;
+      border-right-style: solid;
+    }
+    .bgcolor--ice-blue& {
+      &::before { border-right-color: @color--ice-blue; }
+    }
+    .bgcolor--graphite-grey& {
+      &::before { border-right-color: @color--graphite-grey; }
+    }
+  }
+
+  // Right arrow
+  .color-block-arrow-right {
+    &::before {
+      .color-block-arrow;
+      right: 0;
+      border-left-width: 15px;
+      border-left-style: solid;
+    }
+    .bgcolor--ice-blue& {
+      &::before { border-left-color: @color--ice-blue; }
+    }
+    .bgcolor--graphite-grey& {
+      &::before { border-left-color: @color--graphite-grey; }
+    }
+  }

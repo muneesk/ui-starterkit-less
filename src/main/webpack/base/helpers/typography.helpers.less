@@ -1,0 +1,72 @@
+/* typography.helpers.less
+
+  ================================================== */
+  
+// Type (weight)
+  // 300
+  .weight--light.weight--light,
+  .weight--light.weight--light * { font-weight: @typeweight--light; }
+
+  // 400
+  .weight--medium.weight--medium,
+  .weight--medium.weight--medium *,
+  .weight--default.weight--default,
+  .weight--default.weight--default * { font-weight: @typeweight--default; }
+
+  //600
+  .weight--semi-bold.weight--semi-bold,
+  .weight--semi-bold.weight--semi-bold * { font-weight: @typeweight--semi-bold; }
+
+  // 700
+  .weight--bold.weight--bold,
+  .weight--bold.weight--bold * { font-weight: @typeweight--bold; }
+
+  // 800
+  .weight--extra-bold.weight--extra-bold,
+  .weight--extra-bold.weight--extra-bold * { font-weight: @typeweight--extra-bold; }
+
+  // 900
+  .weight--ultra-bold.weight--ultra-bold,
+  .weight--ultra-bold.weight--ultra-bold * { font-weight: @typeweight--ultra-bold; }
+
+// Type (families)
+  .sans, .sans * { font-family: @typefamily-sans !important; }
+  .serif, .serif * { font-family: @typefamily-serif !important; }
+  
+// Type (alignment)
+  .text-align--center { text-align: center; }
+  .text-align--left { text-align: left; }
+  .text-align--right { text-align: right; }
+
+// Type (case)
+  .typecase-upper { text-transform: @typecase-upper; }
+  .typecase-lower { text-transform: @typecase-lower;}
+
+// Word breaks
+  .break-word { .mixin--break-word; }
+
+// Measure (line length)
+// Works for Content Tile, Text, and Title components
+  .line-length {
+    &--ideal {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 66ch; }
+    }
+    &--20 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 20ch; }
+    }
+    &--30 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 30ch; }
+    }
+    &--40 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 40ch; }
+    }
+    &--50 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 50ch; }
+    }
+    &--60 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 60ch; }
+    }
+    &--70 {
+      &.text > *, &.title > *, .content-tile__title, .content-tile-subtitle, .content-tile-text > * { max-width: 70ch; }
+    }
+  }

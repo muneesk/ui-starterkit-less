@@ -1,0 +1,51 @@
+/* text-field.component.less
+
+  AEM Core form element
+  ================================================== */
+  // Text input
+  .text-field {
+
+    > div {
+      .flex-column;
+
+      // When is error class
+      &.has-error {
+        input { border: 1px solid @color--strawberry-red; }
+        .help-block { .c-hide-message; }
+        .error-message { .c-show-message; }
+      }
+
+    }
+
+    label {
+      font-weight: @typeweight--semi-bold;
+      order: 1;
+      -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+      margin-bottom: 5px;
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
+    }
+
+    input {
+      -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+      order: 2;
+    }
+
+    .help-block {
+      .c-help-block;
+      -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+      order: 3;
+    }
+
+    .error-message {
+      .c-error-message;
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+      order: 4;
+    }
+
+  }

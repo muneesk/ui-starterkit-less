@@ -1,0 +1,198 @@
+/* column-control.color-block-container.component.less
+
+  Note: We should be able to toss these rules and use
+  new background image options for Column Control
+  component to render same result in much cleaner
+  fashion. Only question = who will perform the
+  authoring changes and when? Cannot risk breaking
+  existing content at current stage of project so
+  I am afraid this legacy tech debt must remain
+  for now.
+
+  ================================================== */
+  .column-control-color-block-container {
+
+    > .container-fluid {
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+
+      > .row > .col-12 {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 0;
+
+        // This is added via JS in col-ctrl-color-block.js
+        &.col-full-width {
+          .flex-column;
+          
+          > .content-tile {
+            position: static;
+            -webkit-box-ordinal-group: 2;
+            -ms-flex-order: 1;
+            order: 1;
+          }
+          
+          > .column-control-color-block--text-full-width {
+            -webkit-box-ordinal-group: 3;
+            -ms-flex-order: 2;
+            order: 2;
+          }
+          
+        }
+
+        // Nested
+        > .column-control {
+          max-width: @screen-lg;
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          margin: 0 auto;
+
+          > .row {
+            margin: 0;
+
+          > .col-12 {
+              padding: 40px 30px;
+
+              @media (min-width: @tablet) {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+                max-width: 25%;
+              }
+
+              @media (min-width: @tablet ) and (max-width: (@tablet-landscape - 4)) {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 33%;
+                flex: 0 0 33%;
+                max-width: 33%;
+              }
+
+            }
+          
+          }
+
+          &[class*="--4-cols"] {
+            
+            > .row > .col-12 {
+              
+              @media (min-width: @tablet) {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 33%;
+                flex: 0 0 33%;
+                max-width: 33%;
+              }
+
+            }
+
+          }
+
+          &[class*="--6-cols"] {
+
+            > .row > .col-12 {
+
+              @media (min-width: @tablet) {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+              }
+
+            }
+
+          }
+
+          &[class*="--right"] {
+            > .row > .col-12 { margin-left: auto; }
+          }
+
+          &.column-control-color-block--text-full-width {
+            max-width: none;
+
+            > .row {
+              max-width: @screen-lg;
+              width: 100%;
+              margin: 0 auto;
+
+              > .col-12 {
+                -webkit-box-flex: 0;
+                -ms-flex: 0 0 100%;
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+
+            }
+
+          }
+
+          &:not(.column-control-color-block--text-full-width) {
+            background-color: transparent;
+            background-image: none;
+
+            &.bgcolor {
+              &--chalk-white > .row > .col-12 { background-color: @color--chalk-white; }
+              &--fresh-green > .row >.col-12 { background-color: @color--fresh-green; }
+              &--graphite-grey > .row > .col-12 { background-color: @color--graphite-grey; }
+              &--grass-green > .row > .col-12 { background-color: @color--grass-green; }
+              &--hot-pink > .row >.col-12 { background-color: @color--hot-pink; }
+              &--ice-blue > .row > .col-12 { background-color: @color--ice-blue; }
+              &--ink-blue > .row > .col-12 { background-color: @color--ink-blue; }
+              &--juicy-orange > .row > .col-12 { background-color: @color--juicy-orange; }
+              &--lime-green > .row > .col-12 { background-color: @color--lime-green; }
+              &--marine-turquoise > .row > .col-12 { background-color: @color--marine-turquoise; }
+              &--midnight-blue > .row > .col-12 { background-color: @color--midnight-blue; }
+              &--pearson-blue > .row > .col-12 { background-color: @color--pearson-blue; }
+              &--royal-purple > .row > .col-12 { background-color: @color--royal-purple; }
+              &--soft-black > .row > .col-12 { background-color: @color--soft-black; }
+              &--strawberry-red > .row > .col-12 { background-color: @color--strawberry-red; }
+              &--sunshine-yellow > .row > .col-12 { background-color: @color--sunshine-yellow; }
+              &--grey-15 > .row > .col-12 { background-color: @color--grey-15; }
+              &--grey-20 > .row > .col-12 { background-color: @color--grey-20; }
+              &--grey-30 > .row > .col-12 { background-color: @color--grey-30; }
+              &--grey-75 > .row > .col-12 { background-color: @color--grey-75; }
+              &--grey-85 > .row > .col-12 { background-color: @color--grey-85; }
+              &--grey-95 > .row > .col-12 { background-color: @color--grey-95; }
+            }
+
+          }
+
+          &.column-padding--none >.row > [class*="col-"] { padding: 0; }
+
+        } // End nested Column Control
+
+      }
+
+    } // End .container-fluid
+
+    .content-tile-color-block--full-img {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      picture {
+        position: static;
+        img {
+          height: auto;
+          min-height: 100%;
+          @media (max-width: @mobile) { min-height: 0; }
+        }
+      }
+      @media (min-width: @tablet) { height: 100%; }
+      @media (max-width: (@tablet - 1)) {
+        position: static;
+        .object-fit--false img {
+          display: block;
+          visibility: hidden;
+        }
+      }
+    }
+
+    @media (max-width: (@tablet - 1)) {
+      > [class*="container"] > .row { .flex-column; } 
+    }
+    
+  }
+
+_:-ms-fullscreen,:root { @media (max-width: (@tablet - 1)) {.column-control-color-block-container >[class*="container"] > .row{ display: block; }}}

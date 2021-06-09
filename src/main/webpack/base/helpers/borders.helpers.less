@@ -1,0 +1,76 @@
+/* borders.helpers.less
+
+  ================================================== */
+
+    // BORDERS.HELPERS.LESS -- NEED A COMPREHENSIVE/CONSOLIDATED/COORDINATED SOLUTION
+  // Borders
+  // Need a more robust method that allows for color,
+  // width, and location (top, right, bottom, left)
+  .add-grey-border {
+    border-bottom: 1px solid @color--grey-75;
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  // Need to retain this mess b/c 25 instances of it are found
+  // on 10 pages in /content/ for /global-store/
+  // CONSIDER: RE-AUTHORING THAT CONTENT USING .BORDER-TOP--* CLASSES BELOW
+  .column-border {
+    &-purple {
+      border-top: 6px solid;
+      border-color: @color--royal-purple;
+    }
+    &-yellow {
+      border-top: 6px solid;
+      border-color: @color--sunshine-yellow;
+    }
+    &-red {
+      border-top: 6px solid;
+      border-color: @color--strawberry-red;
+    }
+    &-petrol {
+      border-top: 6px solid;
+      border-color: @color--ink-blue;
+    }
+    &-navy-blue {
+      border-top: 6px solid;
+      border-color: @color--midnight-blue;
+    }
+    &-blue {
+      border-top: 6px solid;
+      border-color: @color--pearson-blue;
+    }
+  }
+
+  // BORDERS.HELPERS.LESS
+  .no-border { border: none; }
+
+  // Double-up for preconfigured (Layout) style options which already specify a top border
+  // to ensure these rules will override
+  .border-top {
+    &--none.border-top--none { border-top: none; }
+    &--cappuccino.border-top--cappuccino { border-top: 6px solid @color--cappuccino; }
+    &--fresh-green.border-top--fresh-green { border-top: 6px solid @color--fresh-green; }
+    &--graphite-grey.border-top--graphite-grey { border-top: 6px solid @color--graphite-grey; }
+    &--grass-green.border-top--grass-green { border-top: 6px solid @color--grass-green; }
+    &--hot-pink.border-top--hot-pink { border-top: 6px solid @color--hot-pink; }
+    &--ice-blue.border-top--ice-blue { border-top: 6px solid @color--ice-blue; }
+    &--ink-black.border-top--ink-black { border-top: 6px solid @color--ink-black; }
+    &--ink-blue.border-top--ink-blue { border-top: 6px solid @color--ink-blue; }
+    &--juicy-orange.border-top--juicy-orange { border-top: 6px solid @color--juicy-orange; }
+    &--lime-green.border-top--lime-green { border-top: 6px solid @color--lime-green; }
+    &--marine-turquoise.border-top--marine-turquoise { border-top: 6px solid @color--marine-turquoise; }
+    &--midnight-blue.border-top--midnight-blue { border-top: 6px solid @color--midnight-blue; }
+    &--pearson-blue.border-top--pearson-blue { border-top: 6px solid @color--pearson-blue; }
+    &--royal-purple.border-top--royal-purple { border-top: 6px solid @color--royal-purple; }
+    &--soft-black.border-top--soft-black { border-top: 6px solid @color--soft-black; }
+    &--strawberry-red.border-top--strawberry-red { border-top: 6px solid @color--strawberry-red; }
+    &--sunshine-yellow.border-top--sunshine-yellow { border-top: 6px solid @color--sunshine-yellow; }
+    &--grey-15.border-top--grey-15 { border-top: 6px solid @color--grey-15; }
+    &--grey-20.border-top--grey-20 { border-top: 6px solid @color--grey-20; }
+    &--grey-30.border-top--grey-30 { border-top: 6px solid @color--grey-30; }
+    &--grey-75.border-top--grey-75 { border-top: 6px solid @color--grey-75; }
+    &--grey-85.border-top--grey-85 { border-top: 6px solid @color--grey-85; }
+    &--grey-95.border-top--grey-95 { border-top: 6px solid @color--grey-95; }
+  }

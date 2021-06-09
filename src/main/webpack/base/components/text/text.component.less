@@ -1,0 +1,288 @@
+/* text.component.less
+
+  ================================================== */
+  .text {
+
+    @media all and (min-width: @tablet) {
+      &:first-child {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    // Zero out vertical margins for any child
+    * {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    // Global top margin for sibling children
+    * + * {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    * + br,
+    br + * {
+      margin-top: 0;
+    }
+
+    li {
+      + li { margin-top: 0; }
+      &:first-child { padding-top: 0; }
+      &:last-child { padding-bottom: 0; }
+    }
+
+    &.color--chalk-white:not([class^="button-"]):not([class*="button-"]) {
+      a:hover, a:active, a:focus { color: @color--chalk-white !important; }
+    }
+
+    &:last-child {
+      p:last-child { margin-bottom: 0; }
+    }
+    
+    // Block-level sibling rules
+    & + .text:not(.tags-filter),
+    & + .content-tile:not(.content-tile-panel-video),
+    & + div.title,
+    & + .column-control { margin-top: 20px; }
+    
+    // Zero out padding & margins in header + footer
+    header &, footer & {
+      padding: 0;
+      margin: 0;
+      
+      & + * { margin: 0; }
+    }
+    
+    // Set foreground colors to white for colors
+    // whose perceived luminance < 127.5
+    // This replaces legacy ".dark-background"
+    // JavaScript logic.
+    &.bgcolor--black,
+    &.bgcolor--ink-black,
+    &.bgcolor--cappuccino,
+    &.bgcolor--graphite-grey,
+    &.bgcolor--grass-green,
+    &.bgcolor--ink-blue,
+    &.bgcolor--midnight-blue,
+    &.bgcolor--pearson-blue,
+    &.bgcolor--pearson-blue-link,
+    &.bgcolor--pearson-blue-nav,
+    &.bgcolor--purple-plue,
+    &.bgcolor--royal-purple,
+    &.bgcolor--soft-black,
+    &.bgcolor--strawberry-red,
+    &.bgcolor--grey-15,
+    &.bgcolor--grey-20,
+    &.bgcolor--grey-30,
+    &.bgcolor--grey-35 {
+      *:not(a) { color: @color--chalk-white !important; }
+    }
+    
+  }
+    
+  // Custom variants : classes added via Developer tab
+  .text {
+      
+    // .text-sub-section-title
+    &-sub-section-title {
+
+      p {
+        font-family: @typefamily-sans;
+        font-weight: @typeweight--semi-bold;
+        color: @color--soft-black;
+        text-transform: uppercase;
+
+        @media (min-width: (@mobile + 1)) {
+          font-size: @typesize-h5;
+          margin: 10px 0 0 0;
+        }
+
+        @media (max-width: @mobile) {
+          font-size: @typesize-h6;
+          margin: 10px 0 10px 0;
+        }
+
+      }
+
+      // When sibling to .intro-copy
+      + .intro-copy & { margin-top: 30px; }
+
+      // .text-sub-section-title--green-bg
+      &--green-bg {
+        border-bottom: 8px solid @color--grass-green;
+        margin: 20px 0;
+
+        p {
+          font-family: @typefamily-sans;
+          font-weight: @typeweight--semi-bold;
+          line-height: @leading--1;
+          color: @color--chalk-white;
+          display: inline-block;
+          background: @color--grass-green;
+          padding: 10px 15px 2px;
+          margin: 0;
+        }
+
+      }
+
+    }
+
+    // .text-info-box
+    &-info-box {
+      background: @color--grey-95;
+      padding: 20px;
+
+      h3, h4 {
+        &:first-child { margin: 0 0 10px 0; }
+      }
+
+      p {
+        font-size: @typesize-default;
+        margin: 10px 0;
+      }
+
+      @media (min-width: (@tablet + 1)) { border-top: 6px solid @color--soft-black; }
+      @media (max-width: @tablet) { border-top: none; }
+
+    }
+
+    // .text-highlight-info
+    &-highlight-info {
+      text-align: center;
+
+      p {
+        margin: 15px 0;
+        border-bottom: 1px solid @color--grey-75;
+        &:last-of-type { border-bottom: none; }
+
+        u {
+          font-size: @typesize-h1;
+          color: @color--grass-green;
+          text-decoration: none;
+          padding-bottom: 10px;
+          display: block;
+
+          b { font-weight: inherit; }
+
+        }
+
+        b u { font-weight: inherit; }
+
+        a[name="icon-tick"],
+        a[id="icon-tick"] {
+          display: block;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: @color--grey-95;
+          position: relative;
+          z-index: 10;
+          padding-bottom: 10px;
+          margin: 26px auto;
+
+          &::after {
+            content: "";
+            display: block;
+            width: 26px;
+            height: 20px;
+            background-image: url("@{image-path}/
+icon-check--slim--grass-green.svg");
+            background-repeat: no-repeat;
+            background-size: 26px 26px;
+            position: absolute;
+            top: 15px;
+            left: 11px;
+            z-index: 20;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+  // .blockquote-text, .blockquote
+  .blockquote, .blockquote-text {
+    padding: 0 20px;
+    margin-bottom: 0;
+    h2, h3, h4 { margin-top: 0; }
+
+    p {
+      font-family: @typefamily-serif;
+      font-size: @typesize-h5;
+      line-height: @leading--1-4;
+      color: @color--soft-black;
+      padding: 0 20px;
+
+      &::before, &::after {
+        font-size: @typesize-h2;
+        line-height: 0;
+        color: @color--soft-black;
+        display: inline-block;
+        position: relative;
+        top: 15px;
+      }
+      &::before {
+        text-indent: -27px;
+        content: '\201C';
+      }
+      &::after {
+        content: '\201D';
+        text-indent: 10px;
+      }
+
+    }
+
+  }
+    
+  // .blockquote__attribution
+  &.blockquote__attribution p {
+    margin-left: 20px;
+    &::before {
+      content: '\2014';
+      padding-right: 5px;
+    }
+  }
+
+  // Text Component masquerading as Link List (sort of)
+  .text.link-list-no-bullets {
+
+    p:first-of-type {
+      border-bottom: 1px solid @color--grey-75;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      b {
+        color: @color--soft-black;
+        text-transform: uppercase;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    li {
+      border-bottom: 1px solid @color--grey-75;
+      padding: 20px;
+      &::before { display: none; }
+      &:last-child { border-bottom: none; }
+      br { display: none; }
+
+      @media (max-width: @tablet) {
+        &:last-child { border-bottom: 1px solid @color--grey-75; }
+      }
+    }
+    
+    a {
+      word-break: normal;
+      display: block;
+    }
+
+  }

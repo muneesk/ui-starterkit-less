@@ -1,0 +1,109 @@
+ /* breadcrumb.component.less
+ 
+ Notes:
+ - crumbtrail is child element of <header>
+ - crumbtrail is absolutely positioned (see above)
+ ================================================== */
+ .breadcrumb {
+    display: block;
+    width: 100%;
+    background-color: rgba(255,255,255,.85);
+    margin-bottom: 0!important;
+    border-radius: 0;
+    padding: 9px 0;
+    position: absolute;
+    top: 100%;
+    
+    .cq-wcm-edit & { position: static; }
+    
+    /**
+    * TODO: Please, refactor this code when breadcrumb-component is situated after the header
+    * remove all annececcery styles that moves this component in the right place with absolute
+    * position.
+    */
+    > ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+        padding: 0 15px;
+        margin: auto;
+        
+        li {
+            display: inline-block;
+            font-size: @typesize-minor;
+            color: @color--cappuccino;
+            
+            p, span.active {
+                display: inline;
+                color: @color--cappuccino;
+                font-weight: @typeweight--semi-bold;
+                font-size: inherit;
+                margin: 0;
+            }
+            
+            a {
+                color: @color--cappuccino;
+                margin-right: 0;
+                &:visited, &:hover, &:active, &:focus { color: @color--cappuccino; }
+            }
+            
+            span:not(.active):not(.trail-text) { display: none; }
+            
+            &:not(:last-of-type)::after {
+                .icon-inline;
+                background-image: url("@{image-path}/
+icon-chevron-right--grey-35.svg");
+                background-position: center center;
+                opacity: 0.825;
+                padding: 0 4px;
+                margin: 0 10px;
+            }
+            
+            &.trigger-crumb {
+                cursor: pointer;
+                
+                button {
+                    border: none;
+                    background: none;
+                }
+                
+            }
+            
+        }
+        
+        &.show-children {
+            &--all li { display: inline-block; } 
+            &-first-last li:not(:first-child):not(:last-child):not(.trigger-crumb) { display: none; }
+        }
+        
+    }
+    
+    .en-page & {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .en-page.cq-wcm-edit & {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    @media (max-width: @mobile) { display: none; }
+    
+}
+
+@media (min-width: (@mobile + 1)) {
+    // Crumbtrail is present
+    [data-breadcrumb="true"] .par-main > .column-control:first-child:not([class*="has-padding-vertical"]) { padding-top: 90px; }
+}
+
+@media (max-width: @mobile) {
+    // Crumbtrail is present
+    [data-breadcrumb="true"] .par-main > .column-control:first-child:not([class*="has-padding-vertical"]) { padding-top: 60px; }
+}

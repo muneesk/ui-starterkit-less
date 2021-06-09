@@ -1,0 +1,65 @@
+/* column-control.horizontal-scroll.component.less
+
+  Horizontal scrolling container (faux carousel)
+
+  Note: Designed for use on Column Control 
+  (/aem-core/) Component. Sets up Bootstrap grid 
+  to become horizontally scrolling container 
+  when width of child els exceeds availables space.
+
+  Used with Developer tab in AEM auth.
+
+  ================================================== */
+  // Not in AEM author
+  body:not(.cq-wcm-edit) {
+    
+    // Column Control containing element
+    .horizontal-scroll {
+      &__container {
+        padding-right: 0;
+        padding-left: 0;
+        
+        // Only immediate child rows
+        // Including nested Column Controls
+        // where the .container class els
+        // do not get rendered
+        > [class*="container"] > .row,
+        > .row {
+          -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+          -webkit-box-align: baseline;
+          -ms-flex-align: baseline;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding-bottom: 20px;
+          
+          // Immediate column child els
+          > [class*="col-"] {
+            @media (min-width: (@mobile + 1)) {
+              min-width: 270px;
+              max-width: 66vw;
+            }
+            @media (max-width: @mobile) { max-width: 64vw; }
+          }
+          
+        } // End .row
+        // Content Tiles should be full height
+        // containers as in .flex-layout. This
+        // eliminates the need to use the
+        // .flex-layout class on parent
+        // Column Control container
+        .content-tile {
+          height: 100%;
+          width: 100%;
+        }
+        .content-tile-container,
+        figure, .content-tile__figure {
+          height: 100%;
+          width: 100%;
+        }
+
+      }
+    }
+
+  }
+    

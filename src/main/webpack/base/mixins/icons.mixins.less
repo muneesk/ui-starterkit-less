@@ -1,0 +1,21 @@
+/* icons.mixins.less
+  ================================================== */
+  // Inline icons
+  // Should be applied to the ::after pseudo for given element.
+  // These rules are shared for every instance of an 
+  // inline icon render; the only props unique to each 
+  // icon type (external link, download, PDF, etc.) are 
+  // the image source (SVG) and padding rules. Padding 
+  // is applied to the x-axis (horizontal) as either:
+
+  //  - width of icon / 2 (18px = pad: 0 9px)
+  //  - width of icon (18px = pad-left/right: 18px)
+  .icon-inline() {
+    content: "";
+    display: inline;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center; // Can adjust at individual level
+    margin: 0 0 0 10px;
+  }
+  .icon-inline--left() { margin: 0 10px 0 0; } // When icon should appear before text

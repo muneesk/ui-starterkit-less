@@ -1,0 +1,59 @@
+/* catchall.mixins.less
+  ================================================== */
+  // Screen reader
+  // Not silent since class is used in markup
+  .screenreader {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px);
+    position: absolute;
+    white-space: nowrap;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+  }
+
+  // Legacy: transitions (time)
+  .transition(@time) {
+    -webkit-transition: all @time ease-in-out;
+    transition: all @time ease-in-out;
+  }
+
+  // Legacy: rotation (degrees)
+  .rotate(@deg) {
+    -webkit-transform: rotate(@deg);
+    transform: rotate(@deg);
+  }
+
+  // Legacy: clearing of floats. Seems like this should be removed.
+  .clear() {
+    &::after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0;
+    }
+  }
+
+  // Drop shadows
+  .box-shadow--card() { 
+    -webkit-box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 4px 15px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  // Word breaks
+  .mixin--break-word() {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }

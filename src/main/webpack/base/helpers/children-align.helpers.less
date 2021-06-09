@@ -1,0 +1,18 @@
+// Aligning children inside column control component
+.children-inline {
+
+  .children {
+		display: inline-block;
+  }
+
+  .children + .children {
+    @media all and (min-width: @screen-md) { margin-left: 20px; }
+  }
+}
+
+
+.children-right {
+  .col-12 {
+    @media all and (min-width: @screen-md) { text-align: right; }
+  }
+}

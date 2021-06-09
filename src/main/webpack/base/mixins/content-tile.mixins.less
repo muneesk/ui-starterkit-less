@@ -1,0 +1,80 @@
+/* content-tile.mixins.less
+  ================================================== */
+  // Navigation block silent mixin() shared rules
+  .panel-item-mixin() {
+    background-color: @color--chalk-white;
+
+    .content-tile-container { height: 100%; }
+
+    figure, .content-tile__figure {
+      clear: both;
+      padding: 0;
+      overflow: visible;
+    }
+
+    picture {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      -ms-flex-negative: 0;
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      width: auto;
+    }
+
+    figcaption, .content-tile__figcaption {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .content-tile__title {
+      font-size: @typesize-h5;
+      border-bottom: 1px solid @color--grey-75;
+      display: block;
+      padding: 0 0 20px 0;
+      margin: 0;
+    }
+
+    .content-tile-subtitle {
+      line-height: @leading--1-4;
+      padding-top: 15px;
+      margin-top: 0;
+    }
+
+    .content-tile-text {
+      height: 100%;
+      margin-top: 10px;
+    }
+
+    a[id^="icon"] {
+      position: relative;
+      line-height: @leading--1-5;
+      br { display: none; }
+      &::after { color: @color--ink-black; }
+    }
+
+  }
+
+  // Navigation block silent mixin() shared rules
+  .navigation-block-mixin() {
+    .transition(.2s);
+    figcaption, .content-tile__figcaption { .p-30; }
+    .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+    img {
+      transform: translateZ(0) scale(1);
+      .transition(.3s);
+    }
+    // Pointer device only
+    // This should be resolved somehow
+    // b/c if no link present this
+    // visual treatment will still occur
+    // on hover.
+    &:hover {
+      .box-shadow--card();
+      img { transform: scale(1.1); }
+    }
+  }

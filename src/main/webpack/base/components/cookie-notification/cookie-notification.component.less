@@ -1,0 +1,89 @@
+/*  $Cookie-notification
+    ================================================== */
+    body > footer { z-index: inherit; } // Fix IE11 issues with z-index and other els on page}
+	.cq-wcm-edit .cookie-notification { display: none; } // Do not display cookie in std author mode
+    .cq-wcm-design .cookie-notification { position: relative; } // Make it easier for author changes in design mode
+    
+    html[class*="aem-AuthorLayer-"] {
+      .cookie-notification {
+        -webkit-transform: translateY(33.333%) translateZ(0);
+        transform: translateY(33.333%) translateZ(0);
+      }
+    }
+
+    .cookie-notification {
+      width: 100%;
+      opacity: 0; // Initial state before cookie check = do not show
+      background-color: @color--soft-black;
+      position: fixed;
+      z-index: 999;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 30px 0;
+      margin: 0;
+      -webkit-transition: all .5s ease-in-out;
+      transition: all .5s ease-in-out;
+      -webkit-transform: translateY(33.333vh) translateZ(0);
+      transform: translateY(33.333vh) translateZ(0);
+
+      &.visible {
+        opacity: 1;
+        -webkit-transform: translateY(0) translateZ(0);
+        transform: translateY(0) translateZ(0);
+      }
+
+      .container {
+        @media (max-width: 1219px) {
+          padding-right: 30px;
+          padding-left: 30px;
+        }
+        h3 {
+          font-family: @typefamily-sans;
+          font-size: @typesize-h6;
+          font-weight: @typeweight--semi-bold;
+          line-height: @leading--default;
+          color: @color--chalk-white;
+          margin: 0;
+        }
+        p {
+          font-size: @typesize-minor;
+          color: @color--chalk-white;
+          margin: 20px 0 0 0;
+          &:last-of-type { white-space: nowrap; }
+        }
+        .js--pearson-cookie-policy-accept-continue {
+          font-size: @typesize-minor;
+          &:first-of-type {
+            margin-bottom: 0;
+            &::after { display: none; }
+          }
+          &:last-of-type {
+            margin-left: 15px;
+            margin-bottom: 0;
+            
+            &::after {
+              .icon-inline;
+              background-image: url("@{image-path}/
+icon-chevron-right--white.svg");
+              padding: 6px 4px;
+            }
+
+            &:hover, &:active, &:focus {
+              .button-haf;
+              border-color: @color--chalk-white;
+              &::after {
+                opacity: 1;
+                background-image: url("@{image-path}/
+icon-chevron-right--soft-black.svg");
+              }
+            }
+            
+            @media(max-width: @mobile) {
+              margin-top: 20px;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }

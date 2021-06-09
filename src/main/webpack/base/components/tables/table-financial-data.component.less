@@ -1,0 +1,47 @@
+/* table-financial-data.component.less
+
+  .table-financial-data = FE
+  ================================================== */
+  .table-financial-data {
+    .p-30();
+    background-color: @color--chalk-white;
+    border-top: 8px solid @color--grass-green;
+
+    td {
+       .py-30();
+      -webkit-font-feature-settings: "lnum" 0;
+      font-feature-settings: "lnum" 0;
+      border-bottom: 1px solid @color--grey-75;
+      &:last-child { color: inherit; }
+      &.title {
+        font-size: @typesize-minor;
+        text-transform: uppercase;
+        color: @color--grey-35;
+      }
+      &.date-info {
+        font-size: @typesize-h5;
+        color: @color--soft-black;
+      }
+      &.amount-info {
+        font-size: @typesize-default;
+        color: @color--grey-35;
+        i {
+          font-style: normal;
+          font-family: @typefamily-serif;
+          font-size: @typesize-h2;
+          color: @color--grass-green;
+        }
+      }
+    }
+
+    tr {
+      background-color: transparent;
+
+      &:first-child, &:nth-child(2) { border-bottom: none; }
+      &:first-child, &:nth-child(2) td { border-bottom: 0; }
+      &:nth-child(2) td { text-transform: uppercase; }
+      &:last-child td { border-bottom: 1px solid @color--grey-75; }
+
+    }
+
+  }

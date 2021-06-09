@@ -1,0 +1,260 @@
+/* padding.helpers.less
+
+  ================================================== */
+  //X and Y axis (all)
+  .has-padding {
+    &--none { .p-0; }
+    &--15 { .p-15; }
+    &--30 { .p-30; }
+    &--45 { .p-45; }
+    &--60 { .p-60; }
+    
+    // (.has-padding-top--0__has-padding-bottom--XX)
+    &-top {
+      &--0 {
+        &__has-padding-bottom {
+          // 15px bottom
+          &--15 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 0;
+              padding-bottom: 15px;
+            }
+            @media (max-width: @tablet) {
+              padding-bottom: 10px;
+            }
+          }
+          // 30px bottom
+          &--30 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 0;
+              padding-bottom: 30px;
+            }
+            @media (max-width: @tablet) {
+              padding-bottom: 20px;
+            } 
+          }
+          // 45px bottom
+          &--45 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 0;
+              padding-bottom: 45px;
+            }
+            @media (max-width: @tablet) {
+              padding-bottom: 30px;
+            } 
+          }
+          // 60px bottom
+          &--60 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 0;
+              padding-bottom: 60px;
+            }
+            @media (max-width: @tablet) {
+              padding-bottom: 45px;
+            }  
+          }
+        }
+      }
+    }
+
+    // (.has-padding-bottom--0__has-padding-top--XX)
+    &-bottom {
+      &--0 {
+        &__has-padding-top {
+          // 15px top
+          &--15 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 15px;
+              padding-bottom: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-top: 10px;
+            }  
+          }
+          // 30px top
+          &--30 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 30px;
+              padding-bottom: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-top: 20px;
+            }  
+          }
+          // 45px top
+          &--45 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 45px;
+              padding-bottom: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-top: 30px;
+            } 
+          }
+          // 60px top
+          &--60 {
+            @media (min-width: (@tablet + 1)) {
+              padding-top: 60px;
+              padding-bottom: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-top: 45px;
+            }  
+          }
+        }
+      }
+    }
+
+    // (.has-padding-left--0__has-padding-right--XX)
+    &-left {
+      &--0 {
+        &__has-padding-right {
+          // 15px right
+          &--15 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 0;
+              padding-right: 15px;
+            }
+            @media (max-width: @tablet) {
+              padding-right: 10px;
+            }  
+          }
+          // 30px right
+          &--30 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 0;
+              padding-right: 30px;
+            }
+            @media (max-width: @tablet) {
+              padding-right: 20px;
+            }  
+          }
+          // 45px right
+          &--45 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 0;
+              padding-right: 45px;
+            }
+            @media (max-width: @tablet) {
+              padding-right: 30px;
+            }   
+          }
+          // 60px right
+          &--60 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 0;
+              padding-right: 60px;
+            }
+            @media (max-width: @tablet) {
+              padding-right: 45px;
+            }  
+          }
+        }
+      }
+    }
+
+    // (.has-padding-left--XX__has-padding-right--0)
+    &-right {
+      &--0 {
+        &__has-padding-left {
+          // 15px left
+          &--15 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 15px;
+              padding-right: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-left: 10px;
+            }
+          }
+          // 30px left
+          &--30 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 30px;
+              padding-right: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-left: 20px;
+            } 
+          }
+          // 45px left
+          &--45 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 45px;
+              padding-right: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-left: 30px;
+            }
+          }
+          // 60px left
+          &--60 {
+            @media (min-width: (@tablet + 1)) {
+              padding-left: 60px;
+              padding-right: 0;
+            }
+            @media (max-width: @tablet) {
+              padding-left: 45px;
+            } 
+          }
+        }
+      }
+    }
+  }
+
+  // Y-axis (vertical: top and bottom only)
+  .has-padding-vertical {
+    &--none { .py-0; }
+    &--15 { .py-15; }
+    &--30 { .py-30; }
+    &--45 { .py-45; }
+    &--60 { .py-60; }
+    &--75 { .py-75; }
+    &--90 { .py-90; }
+  }
+
+  // Y-axis (vertical: bottom only)
+  .has-padding-bottom {
+    &--none { .pb-0; }
+    &--15 { .pb-15; }
+    &--30 { .pb-30; }
+    &--45 { .pb-45; }
+    &--60 { .pb-60; }
+    &--75 { .pb-75; }
+    &--90 { .pb-90; }
+  }
+    
+  // Y-axis (vertical: top only)
+  .has-padding-top {
+    &--none { .pt-0; }
+    &--15 { .pt-15; }
+    &--30 { .pt-30; }
+    &--45 { .pt-45; }
+    &--60 { .pt-60; }
+    &--75 { .pt-75; }
+    &--90 { .pt-90; }
+  }
+
+  // X-axis (horizontal: left and right only)
+  .has-padding-horizontal {
+    &--none { .px-0; }
+    &--15 { .px-15; }
+    &--20 { .px-20; }
+    &--30 { .px-30; }
+    &--45 { .px-45; }
+    &--60 { .px-60; }
+    &--75 { .px-75; }
+    &--90 { .px-90; }
+    &--105 { .px-105; }
+    &--120 { .px-120; }
+  }
+
+  // X-axis (horizontal: left only)
+  .has-padding-left {
+    &--none { .pl-0; }
+  }
+
+  // X-axis (horizontal: right only)
+  .has-padding-right {
+    &--none { .pr-0; }
+  }

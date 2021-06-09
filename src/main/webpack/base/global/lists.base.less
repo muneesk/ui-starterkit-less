@@ -1,0 +1,25 @@
+/* lists.base.less
+
+  ================================================== */
+  ul, ol {
+    padding: 0 0 0 20px;
+    margin: 0;
+    
+    // When sibling
+    * + & { margin: 20px 0 0 0; }
+    
+    li { padding: 5px 0; }
+    
+  }
+
+  ul { list-style-type: disc; }
+
+  ol { list-style-type: decimal; }
+
+  // Zero out padding & margins 
+  // when in header & footer
+  header,
+  footer {
+    ol, ul, li { padding: 0; margin: 0; }
+    li + li { margin: 0; }
+  }

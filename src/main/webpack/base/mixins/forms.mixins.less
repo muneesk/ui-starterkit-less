@@ -1,0 +1,68 @@
+/* forms.mixins.less
+  ================================================== */
+  // Form controls
+  .c-form-control {
+    font-family: @typefamily-sans;
+    font-size: @typesize-default;
+    font-weight: @typeweight--default;
+    color: @color--cappuccino;
+    border: 1px solid @color--grey-70;
+    border-radius: 0.25em;
+    display: block;
+    padding: 10px;
+    height: 48px;
+    width: 100%;
+
+    &:active,
+    &:focus {
+      border-color: @color--dodger-blue;
+      outline: none;
+    }
+
+    &[disabled="disabled"] {
+      color: @color--grey-35;
+      background-color: @color--grey-95;
+    }
+
+    .has-error & { border-color: @color--strawberry-red; }
+
+  }
+  // Form labels
+  .c-form-label {
+    font-family: @typefamily-sans;
+    font-size: @typesize-default;
+    font-weight: @typeweight--default;
+    color: @color--cappuccino;
+    display: block;
+    cursor: pointer;
+  }
+  // Form messaging
+  .c-help-block {
+    font-size: @typesize-milli-plus;
+    font-weight: @typeweight--default;
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    margin: 5px 0 0 0;
+    transition: all .2s ease-in-out;
+  }
+  .c-error-message {
+    font-size: @typesize-milli-plus;
+    color: @color--strawberry-red;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s ease-in-out;
+  }
+  .c-hide-message {
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+  }
+  .c-show-message {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    margin-top: 5px;
+  }

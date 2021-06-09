@@ -1,0 +1,35 @@
+/* content-tile-info-small-img.component.less
+
+  Styles > Layout > "Small info image" 
+
+  ================================================== */
+  .content-tile-info-small-img {
+    background-color: @color--grey-95;
+
+    figure, .content-tile__figure {
+      position: relative;
+      padding: 20px;
+    }
+
+    picture {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .content-tile__title {
+      .h5;
+      color: @color--soft-black;
+      margin: 15px 0 30px 80px;
+    }
+
+    .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+
+    .content-tile-text p:last-of-type {
+      border-top: 1px solid @color--grey-75;
+      padding-top: 20px;
+    }
+
+  }

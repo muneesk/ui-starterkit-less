@@ -1,0 +1,59 @@
+/* defaults.base.less
+
+  Purpose: some global rules
+  ================================================== */
+  html {
+    font-size: 62.5%; // 1rem = 10px
+    line-height: inherit;
+    height: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+  }
+  
+  body {
+    font-family: @typefamily-sans;
+    font-size: @typesize-default;
+    font-style: @typestyle-normal;
+    font-weight: @typeweight--default;
+    line-height: inherit;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "lnum" 1;
+    font-feature-settings: "lnum" 1;
+    color: @color--cappuccino;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    direction: ltr;
+    background-color: @color--chalk-white;
+    opacity: 1;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  // Global margin rules for default markup
+  // Component margin rules follow global but
+  // reside with component-specific LESS files
+  // May need to revisit during testing
+  h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, table { 
+    margin: 0;
+    
+    * + & {
+      @media (min-width: (@tablet + 1)) { margin-top: 20px; }
+      @media (max-width: @tablet) { margin-top: 15px; }
+    }
+    
+  }
+
+  // Remove focus outline for mouse events
+  *:focus:not(:focus-visible) { outline: none; }
+

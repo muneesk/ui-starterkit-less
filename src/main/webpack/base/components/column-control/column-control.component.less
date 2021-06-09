@@ -1,0 +1,33 @@
+/* column-control.component.less
+
+  ================================================== */
+  .column-control {
+    position: relative;
+    .py-60;
+    .px-0;
+    .transition(.2s);
+  }
+
+  // Nested column control: need this for BS 4.3 flex grid
+  @media (min-width: (@mobile + 1)) {
+    [class*="col-"] .column-control { width: 100%; }
+  }
+
+  // Negative margins for single column Column Control with 
+  // nested child Column Control that has valid background
+  // color option applied.
+  //
+  // Selector is far too specific and this could be more
+  // efficiently accomplished using a class on the nested
+  // Column Control -- only problem with that = who knows
+  // how many instances of this currently exist?
+  // One way to find out: delete the rule and see if any
+  // adverse impact is reported then address with helper
+  // class for nested Column Control to set -20px x-axis
+  // margins.
+  //
+  // ALERT: Specificity score = 0.80
+  @media (max-width: @mobile) {
+    .par-main > .column-control > .container > .row > .col-12 > [class*="bg"].column-control:not(.bgcolor--default) { margin: 0 -20px; }
+  }
+

@@ -1,0 +1,150 @@
+/* rss-feed.component.less
+
+  AEM Core RSS Feed Component styles
+  Notes: default style is portrait card format that
+  mimics Bootstrap grid columns. Authors can decide
+  to render as stacked horizontal list by using the
+  "rss-feed--listed" class option
+  ================================================== */
+  .rss-feed {
+    // Ordered list <ol>
+    .rss-feed-container {
+      list-style: none;
+      .flex;
+      -webkit-justify-content: space-between;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+      &::after, &::before { display: none; }
+    }
+    // Individual ist item containers <li>
+    .rss-feed-item {
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 31.5%;
+      flex: 0 0 31.5%;
+      position: relative;
+      overflow: hidden;
+      background-color: @color--chalk-white;
+      padding: 0;
+      margin: 0;
+      &:last-child { margin-right: 0; }
+      @media (min-width: @tablet) {
+        &:nth-child(n+4) { margin-top: 30px; }
+      }
+      @media (max-width: @tablet) { 
+        &:last-child, &:nth-last-child(2) { margin-bottom: 0; }
+      }
+    }
+    // Image container
+    .rss-feed-enclosure {
+      background-image: url("@{image-path}/
+load-indicator--bubble-grey-75.svg");
+      background-color: @color--grey-100;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: scroll;
+      background-size: contain;
+      .flex;
+      height: 180px;
+      overflow: hidden;
+      @media (max-width: @tablet) { height: 240px; }
+      img {
+        border-top: 4px solid @color--lime-green;
+        display: block;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        -o-object-fit: cover;
+        object-fit: cover;
+        @media (min-width: (@tablet + 1)) { max-width: 200px; } 
+      }
+    }
+    // Definition list is used to render the copy
+    // including heading/title and body
+    dl {
+      .flex-column;
+      padding: 20px;
+      margin: 0;
+      @media (max-width: @tablet) {
+        width: auto;
+        background-color: @color--chalk-white;
+        padding: 0 20px;
+        margin-top: 20px;
+      }
+    }
+    dt, dd { display: block; margin: 0; }
+    * + dd { margin-top: 20px; }
+    // Title renders as Definition Term <dt>
+    .rss-feed-title {
+      .h5;
+      -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+      order: 1;
+    }
+    // Author data renders in <dd>
+    .rss-feed-author {
+      font-weight: @typeweight--semi-bold;
+      -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+      order: 2;
+    }
+    // Body copy/blurb renders in <dd>
+    .rss-feed-description {
+      -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+      order: 3;
+      @media (max-width: @tablet) { margin-bottom: 0; }
+    }
+    // Publication date renders in <dd>
+    .rss-feed-pubdate {
+      border-top: 1px solid @color--grey-75;
+      padding-top: 20px;
+      margin-bottom: 0;
+      -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+      order: 4;
+      @media (max-width: @tablet) { margin-top: 20px; }
+    }
+
+
+
+    // Horizontal stacked list style version
+    &.rss-feed--listed {
+      // Ordered list <ol>
+      .rss-feed-container { display: block; }
+      // Image container
+      .rss-feed-enclosure {
+        @media (min-width: (@tablet + 1)) {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 27%;
+          flex: 0 0 27%;
+          max-width: 27%;
+          height: 130px;
+        }
+      }
+      // Definition list is used to render the copy
+      // including heading/title and body
+      dl {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 73%;
+        flex: 0 0 73%;
+        padding: 0 20px;
+      }
+      
+      .rss-feed-item {
+        border-top: 4px solid @color--grey-95;
+        background-color: transparent;
+        .py-60;
+        margin: 0;
+        &:first-child {
+          padding-top: 0;
+          border-top: 0;
+        }
+        @media (min-width: (@tablet + 1)) { .flex; }
+        @media (max-width: @tablet) { display: block; }
+      }
+      // Adhere to global margin rules
+      + .content-tile, + .text { margin-top: 20px; }
+    }
+
+  }

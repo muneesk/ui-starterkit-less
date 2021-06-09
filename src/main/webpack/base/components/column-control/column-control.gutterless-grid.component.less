@@ -1,0 +1,36 @@
+/* column-control.gutterless-grid.component.less
+
+  Notes: removes padding on first-level child grid
+  columns. Similar to: .flex-layout-no-spacing.
+
+  ================================================== */
+  .gutterless-grid.gutterless-grid {
+    .row > {
+      margin: 0;
+
+      [class^="col-"] {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        &:first-of-type { padding-left: 0; }
+        &:last-of-type { padding-right: 0; }
+      }
+      .col-12 > .content-tile:last-child { margin-bottom: 0; }
+    }
+    // Child elements
+    .content-tile,
+    .content-tile-container,
+    figure, .content-tile__figure {
+      .flex;
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        max-width: none;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+    }
+
+  }

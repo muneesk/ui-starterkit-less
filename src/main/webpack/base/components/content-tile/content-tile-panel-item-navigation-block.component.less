@@ -1,0 +1,35 @@
+/* content-tile-panel-item-navigation-block.component.less
+
+  ================================================== */
+
+  .content-tile {
+    // Layout > Primary navigation block | listing
+    &.content-tile-panel-item-main {
+      .panel-item-mixin; // Shared mixin rules
+      .navigation-block-mixin; // Shared mixin rules
+
+      .content-tile__title {
+        font-size: @typesize-h3;
+        color: @color--soft-black;
+      }
+
+    }
+
+    // Layout > Secondary navigation block
+    &.content-tile-panel-item {
+      .panel-item-mixin; // Shared mixin rules
+      .navigation-block-mixin; // Shared mixin rules
+      border-top: 6px solid @color--lime-green;
+
+      > a { display: block; }
+
+      .content-tile__title {
+        font-family: @typefamily-sans;
+        font-weight: @typeweight--semi-bold;
+        font-size: @typesize-h6;
+        line-height: @leading--default;
+        color: @color--soft-black;
+      }
+
+    }
+  }

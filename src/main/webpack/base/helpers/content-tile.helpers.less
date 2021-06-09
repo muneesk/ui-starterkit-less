@@ -1,0 +1,1127 @@
+/* content-tile.helpers.less
+
+   Note: these options get authored as overrides to
+   default rules for Content Tile component.
+
+  ================================================== */
+  .content-tile {
+    
+    &[class*="content-tile-landscape--"] {
+      figure, .content-tile__figure,
+      figure > a, .content-tile__figure > a {
+        .flex;
+        @media (min-width: @tablet) {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      
+      @media (max-width: (@tablet - 1)) {
+        figure, .content-tile__figure,
+        figure > a, .content-tile__figure > a { .flex-column; }
+        picture { .flex-column--picture; }
+        figcaption, .content-tile__figcaption { .flex-column--caption; }
+      }
+    
+    }
+    
+    // Landscape variants
+    &-landscape {
+      
+      // 50:50
+      &--50-50 {
+        picture {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+          .pr-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+          .pl-15;
+        }
+      }
+      
+      // 50:50 (reverse)
+      &--50-50-reverse {
+        picture {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+          .pl-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+          max-width: 50%;
+          .pr-15;
+        }
+      }
+
+      // 40:60
+      &--40-60 {
+        picture {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 41.66666667%;
+          flex: 0 0 41.66666667%;
+          max-width: 41.66666667%;
+          .pr-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 58.33333333%;
+          flex: 0 0 58.33333333%;
+          max-width: 58.33333333%;
+          .pl-15;
+        }
+      }
+
+      // 33:66
+      &--33-66 {
+        picture {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 33.33333333%;
+          flex: 0 0 33.33333333%;
+          max-width: 33.33333333%;
+          .pr-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 66.66666667%;
+          flex: 0 0 66.66666667%;
+          max-width: 66.66666667%;
+          .pl-15;
+        }
+      }
+
+      // 25:75
+      &--25-75 {
+        picture {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+          .pr-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+          .pl-15;
+        }
+      }
+
+      // 17:83
+      &--17-83 {
+        picture {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 16.66666667%;
+            flex: 0 0 16.66666667%;
+            max-width: 16.66666667%;
+            .pr-15;
+        }
+        figcaption, .content-tile__figcaption {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 83.33333333%;
+            flex: 0 0 83.33333333%;
+            max-width: 83.33333333%;
+            .pl-15;
+        }
+      }
+
+      // 60:40
+      &--60-40 {
+        picture {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 41.66666667%;
+          flex: 0 0 41.66666667%;
+          max-width: 41.66666667%;
+          .pl-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 58.33333333%;
+          flex: 0 0 58.33333333%;
+          max-width: 58.33333333%;
+          .pr-15;
+        }
+      }
+
+      // 66:33
+      &--66-33 {
+        picture {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 33.33333333;
+          flex: 0 0 33.33333333;
+          max-width: 33.33333333%;
+          .pl-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 66.66666667%;
+          flex: 0 0 66.66666667%;
+          max-width: 66.66666667%;
+          .pr-15;
+        }
+      }
+
+      // 75:25
+      &--75-25 {
+        picture {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+          max-width: 25%;
+          .pl-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+          max-width: 75%;
+          .pr-15;
+        }
+      }
+
+      // 83:17
+      &--83-17 {
+        picture {
+          -webkit-box-ordinal-group: 3;
+          -webkit-order: 2;
+          -ms-flex-order: 2;
+          order: 2;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 16.66666667%;
+          flex: 0 0 16.66666667%;
+          max-width: 16.66666667%;
+          .pl-15;
+        }
+        figcaption, .content-tile__figcaption {
+          -webkit-box-ordinal-group: 2;
+          -webkit-order: 1;
+          -ms-flex-order: 1;
+          order: 1;
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 83.33333333%;
+          flex: 0 0 83.33333333%;
+          max-width: 83.33333333%;
+          .pr-15;
+        }
+      }
+    
+    }
+        
+    // Typography: control family. size, weight, and color (title + subtitle)
+    // Type size (title)
+    &.title-typesize {
+
+      &--exa {
+        .content-tile__title { .exa; }
+      }
+
+      &--peta {
+        .content-tile__title { .peta; }
+      }
+
+      &--tera {
+        .content-tile__title { .tera; }
+      }
+
+      &--giga {
+        .content-tile__title { .giga; }
+      }
+
+      &--mega {
+        .content-tile__title { .mega; }
+      }
+
+      &--kilo {
+        .content-tile__title { .kilo; }
+      }
+
+      &--h1 {
+        .content-tile__title { .h1; }
+      }
+
+      &--h2 {
+        .content-tile__title { .h2; }
+      }
+
+      &--h3 {
+        .content-tile__title { .h3; }
+      }
+
+      &--h4 {
+        .content-tile__title { .h4; }
+      }
+
+      &--h5 {
+        .content-tile__title { .h5; }
+      }
+
+      &--h6 {
+        .content-tile__title { .h6; }
+      }
+
+      &--p {
+        .content-tile__title { .p; }
+      }
+
+    }
+
+    // Type family (title)
+    &.title-typefamily {
+
+      &--sans {
+        .content-tile__title { font-family: @typefamily-sans; }
+      }
+
+      &--serif {
+        .content-tile__title { font-family: @typefamily-serif; }
+      }
+
+    }
+
+    // Type weight (title)
+    &.title-typeweight {
+
+      &--light {
+        .content-tile__title { font-weight: @typeweight--light; }
+      }
+
+      &--medium {
+        .content-tile__title { font-weight: @typeweight--medium; }
+      }
+
+      &--semi-bold {
+        .content-tile__title { font-weight: @typeweight--semi-bold; }
+      }
+
+      &--bold {
+        .content-tile__title { font-weight: @typeweight--bold; }
+      }
+
+      &--extra-bold {
+        .content-tile__title { font-weight: @typeweight--extra-bold; }
+      }
+
+      &--ultra-bold {
+        .content-tile__title { font-weight: @typeweight--ultra-bold; }
+      }
+
+    }
+
+    // Type color (title)
+    &.title-color {
+
+      &--chalk-white {
+        .content-tile__title { color: @color--chalk-white; }
+      }
+
+      &--graphite-grey {
+        .content-tile__title { color: @color--graphite-grey; }
+      }
+
+      &--grass-green {
+        .content-tile__title { color: @color--grass-green; }
+      }
+
+      &--ice-blue {
+        .content-tile__title { color: @color--ice-blue; }
+      }
+
+      &--ink-black {
+        .content-tile__title { color: @color--ink-black; }
+      }
+
+      &--ink-blue {
+        .content-tile__title { color: @color--ink-blue; }
+      }
+
+      &--lime-green {
+        .content-tile__title { color: @color--lime-green; }
+      }
+
+      &--midnight-blue {
+        .content-tile__title { color: @color--midnight-blue; }
+      }
+
+      &--pearson-blue {
+        .content-tile__title { color: @color--pearson-blue; }
+      }
+      
+      &--soft-black {
+        .content-tile__title { color: @color--soft-black; }
+      }
+
+      &--grey-15 {
+        .content-tile__title { color: @color--grey-15; }
+      }
+
+      &--grey-20 {
+        .content-tile__title { color: @color--grey-20; }
+      }
+
+      &--grey-75 {
+        .content-tile__title { color: @color--grey-75; }
+      }
+
+      &--grey-85 {
+        .content-tile__title { color: @color--grey-85; }
+      }
+
+      &--grey-95 {
+        .content-tile__title { color: @color--grey-95; }
+      }
+
+    }
+
+    // Type size (subtitle)
+    &.subtitle-typesize {
+
+      &--exa {
+        .content-tile-subtitle { .exa; }
+      }
+
+      &--peta {
+        .content-tile-subtitle { .peta; }
+      }
+
+      &--tera {
+        .content-tile-subtitle { .tera; }
+      }
+
+      &--giga {
+        .content-tile-subtitle { .giga; }
+      }
+
+      &--mega {
+        .content-tile-subtitle { .mega; }
+      }
+
+      &--kilo {
+        .content-tile-subtitle { .kilo; }
+      }
+
+      &--h1 {
+        .content-tile-subtitle { .h1; }
+      }
+
+      &--h2 {
+        .content-tile-subtitle { .h2; }
+      }
+
+      &--h3 {
+        .content-tile-subtitle { .h3; }
+      }
+
+      &--h4 {
+        .content-tile-subtitle { .h4; }
+      }
+      &--h5 {
+        .content-tile-subtitle { .h5; }
+      }
+
+      &--h6 {
+        .content-tile-subtitle { .h6; }
+      }
+
+      &--p {
+        .content-tile-subtitle { .p; }
+      }
+
+    }
+
+    // Type family (subtitle)
+    &.subtitle-typefamily {
+
+      &--sans {
+        .content-tile-subtitle { font-family: @typefamily-sans; }
+      }
+
+      &--serif {
+        .content-tile-subtitle { font-family: @typefamily-serif; }
+      }
+
+    }
+
+    // Type weight (subtitle)
+    &.subtitle-typeweight {
+
+      &--light {
+        .content-tile-subtitle { font-weight: @typeweight--light; }
+      }
+
+      &--medium {
+        .content-tile-subtitle { font-weight: @typeweight--medium; }
+      }
+
+      &--semi-bold {
+        .content-tile-subtitle { font-weight: @typeweight--semi-bold; }
+      }
+
+      &--bold {
+        .content-tile-subtitle { font-weight: @typeweight--bold; }
+      }
+
+      &--extra-bold {
+        .content-tile-subtitle { font-weight: @typeweight--extra-bold; }
+      }
+
+      &--ultra-bold {
+        .content-tile-subtitle { font-weight: @typeweight--ultra-bold; }
+      }
+
+    }
+
+    // Type color (subtitle)
+    &.subtitle-color {
+
+      &--chalk-white {
+        .content-tile-subtitle { color: @color--chalk-white; }
+      }
+
+      &--graphite-grey {
+        .content-tile-subtitle { color: @color--graphite-grey; }
+      }
+
+      &--grass-green {
+        .content-tile-subtitle { color: @color--grass-green; }
+      }
+
+      &--ice-blue {
+        .content-tile-subtitle { color: @color--ice-blue; }
+      }
+
+      &--ink-black {
+        .content-tile-subtitle { color: @color--ink-black; }
+      }
+
+      &--ink-blue {
+        .content-tile-subtitle { color: @color--ink-blue; }
+      }
+
+      &--lime-green {
+        .content-tile-subtitle { color: @color--lime-green; }
+      }
+
+      &--midnight-blue {
+        .content-tile-subtitle { color: @color--midnight-blue; }
+      }
+
+      &--pearson-blue {
+        .content-tile-subtitle { color: @color--pearson-blue; }
+      }
+      
+      &--soft-black {
+        .content-tile-subtitle { color: @color--soft-black; }
+      }
+
+      &--grey-15 {
+        .content-tile-subtitle { color: @color--grey-15; }
+      }
+
+      &--grey-20 {
+        .content-tile-subtitle { color: @color--grey-20; }
+      }
+
+      &--grey-75 {
+        .content-tile-subtitle { color: @color--grey-75; }
+      }
+
+      &--grey-85 {
+        .content-tile-subtitle { color: @color--grey-85; }
+      }
+
+      &--grey-95 {
+        .content-tile-subtitle { color: @color--grey-95; }
+      }
+
+    }
+      
+    // Padding for figure + figcaption
+    &.pad {
+
+      // 0
+      &--0 {
+        &__figure {
+          figure, .content-tile__figure { .p-0; }
+        }
+      }
+
+      // 15px
+      &--15 {
+        &__figure {
+          figure, .content-tile__figure { .p-15; }
+        }
+      }
+
+      // 30px
+      &--30 {
+        &__figure {
+          figure, .content-tile__figure { .p-30; }
+        }
+      }
+
+      // 45px
+      &--45 {
+        &__figure {
+          figure, .content-tile__figure { .p-45; }
+        }
+      }
+
+      // 60px
+      &--60 {
+        &__figure {
+          figure, .content-tile__figure { .p-60; }
+        }
+      }
+
+      // Vertical (<figcaption> only)
+      &-eq-vertical {
+
+        // 0 for both top and bottom
+        &--0 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .py-0; }
+          }
+        }
+
+        // 15px for both top and bottom
+        &--15 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .py-15; }
+          }
+        }
+
+        // 30px for both top and bottom
+        &--30 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .py-30; }
+          }
+        }
+
+        // 45px for both top and bottom
+        &--45 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .py-45; }
+          }
+        }
+
+        // 60px for both top and bottom
+        &--60 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .py-60; }
+          }
+        }
+
+      }
+
+      // Vertical splits (diff top and bottom values)
+      // Note: reason for these complex class names =
+      // authors wanted to make a single selection for
+      // these rules via styles tab drop downs; AEM
+      // allows for only a one-to-one class to option
+      // match so we are restricted to only applying
+      // a single class name for each of the variants.
+      // Thus you end up with class names that look like:
+      // .has-padding-right--0__has-padding-left--60
+      &-top {
+        &--0 {
+          &__pad-bottom {
+
+            // 0 top and 15px bottom
+            &--15 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-0;
+                  .pb-15;
+                }
+              }
+            }
+
+            // 0 top and 30px bottom
+            &--30 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-0;
+                  .pb-30;
+                }
+              }
+            }
+
+            // 0 top and 45px bottom
+            &--45 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-0;
+                  .pb-45;
+                }
+              }
+            }
+
+            // 0 top and 60px bottom
+            &--60 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-0;
+                  .pb-60;
+                }
+              }
+            }
+          
+          }
+        }
+      }
+
+      &-bottom {
+        &--0 {
+          &__pad-top {
+
+            // 0 bottom and 15px top
+            &--15 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-15;
+                  .pb-0;
+                }
+              }
+            }
+
+            // 0 bottom and 30px top
+            &--30 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-30;
+                  .pb-0;
+                }
+              }
+            }
+
+            // 0 bottom and 45px top
+            &--45 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-45;
+                  .pb-0;
+                }
+              }
+            }
+
+            // 0 bottom and 60px top
+            &--60 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pt-60;
+                  .pb-0;
+                }
+              }
+            }
+            
+          }
+        }
+      }
+
+      // Horizontal (<figcaption> and .content-tile__figcaption only)
+      &-eq-horizontal {
+
+        // 0 for both left and right
+        &--0 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .px-0; }
+          }
+        }
+
+        // 15px for both left and right
+        &--15 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .px-15; }
+          }
+        }
+
+        // 30px for both left and right
+        &--30 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .px-30; }
+          }
+        }
+
+        // 45px for both left and right
+        &--45 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .px-45; }
+          }
+        }
+
+        // 60px for both left and right
+        &--60 {
+          &__caption {
+            figcaption, .content-tile__figcaption { .px-60; }
+          }
+        }
+      
+      }
+
+      // Horizontal splits (diff left and right values)
+      &-left {
+        &--0 {
+          &__pad-right {
+
+            // 0 left and 15px right
+            &--15 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-0;
+                  .pr-15;
+                }
+              }
+            }
+
+            // 0 left and 30px right
+            &--30 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-0;
+                  .pr-30;
+                }
+              }
+            }
+
+            // 0 left and 45px right
+            &--45 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-0;
+                  .pr-45;
+                }
+              }
+            }
+
+            // 0 left and 60px right
+            &--60 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-0;
+                  .pr-60;
+                }
+              }
+            }
+          
+          }
+        }
+      }
+
+      &-right {
+        &--0 {
+          &__pad-left {
+
+            // 0 right and 15px left
+            &--15 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-15;
+                  .pr-0;
+                }
+              }
+            }
+
+            // 0 right and 30px left
+            &--30 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-30;
+                  .pr-0;
+                }
+              }
+            }
+
+            // 0 right and 45px left
+            &--45 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-45;
+                  .pr-0;
+                }
+              }
+            }
+
+            // 0 right and 60px left
+            &--60 {
+              &__caption {
+                figcaption, .content-tile__figcaption {
+                  .pl-60;
+                  .pr-0;
+                }
+              }
+            }
+          
+          }
+        }
+      }
+
+  }
+    
+  } // end .content-tile
+
+  // These are legacy padding rules before the switch to padding based
+// on figcaption or figure. We cannot safely remove them w/o updating the
+// hundreds of instances of Content Tiles that are currently using them.
+// In future sprints, content reports should be run and analyzed to determine
+// if any of these legacy authoring methods still exist. Once they are down
+// to manageable level we should update those content nodes and remove these
+// rules.
+// ==========================================================================
+  // X and Y axis (all)
+  .has-padding {
+    
+    &--15 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .p-15; }
+      }
+    }
+        
+    &--30 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .p-30; }
+      } 
+    }
+
+    &--45 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .p-45; }
+      }
+    }
+
+    &--60 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .p-60; }
+      }  
+    }
+        
+    // .has-padding-top--0__has-padding-bottom--XX
+    &-top {    
+      &--0 {        
+        &__has-padding-bottom {
+                    
+          // 15px bottom
+          &--15 {
+            &.content-tile {
+              .p-0;
+              figcaption, .content-tile__figcaption {
+                .pt-0;
+                .pb-15;
+              }
+            }
+          }
+          
+        }
+      }     
+    }
+    
+  }
+
+  // Y-axis (vertical: top and bottom only)
+  .has-padding-vertical {
+        
+    &--15 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .py-15; }
+      }
+    }
+        
+    &--30 { //
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .py-30; }
+      }
+    }
+
+    &--45 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .py-45; }
+      }
+    }
+
+    &--60 {
+      &.content-tile {
+        .p-0;
+        figcaption, .content-tile__figcaption { .py-60; }
+      }
+    }
+
+  }
+
+  // X-axis (horizontal: left and right only)
+  .has-padding-horizontal {
+        
+      &--15 {
+        &.content-tile {
+          .p-0;
+          figcaption, .content-tile__figcaption { .px-15; }
+        }
+      }
+
+      &--30 {
+        &.content-tile {
+          .p-0;
+          figcaption, .content-tile__figcaption { .px-30; }
+        }
+      }
+
+      &--45 {
+        &.content-tile {
+          .p-0;
+          figcaption, .content-tile__figcaption { .px-45; }
+        }
+      }
+
+      &--60 {
+        &.content-tile {
+          .p-0;
+          figcaption, .content-tile__figcaption { .px-60; }
+        }
+      }
+        
+    }
+
+  // Apply padding to the <picture> component.
+  // Legacy but design wishes to retain
+  .image-padding {
+        
+    &--none {
+      picture { .p-0; }
+    }
+
+    &--15 {
+      picture { .p-15; }
+    }
+
+    &--30 {
+      picture { .p-30; }
+    }
+
+    &--45 {
+      picture { .p-45; }
+    }
+
+    &--60 {
+      picture { .p-60; }
+    }
+    
+    // Vertical only
+    &-vertical {
+      
+      &--15 {
+        picture { .py-15; }   
+      }
+        
+      &--30 {
+        picture { .py-30; }
+      }
+
+      &--45 {
+        picture { .py-45; }
+      }
+
+      &--60 {
+        picture { .py-60; }
+      }
+      
+    }
+        
+    // Horizontal only
+    &-horizontal {
+      
+      &--15 { 
+        picture { .px-15; }
+      }
+      
+      &--30 {
+        picture { .px-30; }
+      }
+
+      &--45 {
+        picture { .px-45; }
+      }
+      
+      &--60 {
+        picture { .px-60; }
+      }
+      
+    }
+
+  }
+
+  // Column counts for Content Tile body text when viewport is 600px or larger
+  @media (min-width: 600px) {
+    .content-tile-text--col-count-2 {
+
+      .content-tile-text {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 45px;
+        -moz-column-gap: 45px;
+        column-gap: 45px;
+      }
+
+      // Reset the last paragraph to be full-width if button--block
+      &.button--block {
+        .content-tile-text {
+          p:last-of-type {
+            -webkit-column-span: all;
+            -moz-column-span: all;
+            column-span: all;
+          }
+        }
+      }
+    
+    }
+  }

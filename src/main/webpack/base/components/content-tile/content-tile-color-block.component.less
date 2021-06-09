@@ -1,0 +1,376 @@
+/* content-tile.color-block.component.less
+
+  ================================================== */
+  // Mixin called by authored class names
+  .colorBlockMixin() {
+    overflow: hidden;
+    background-color: transparent;
+    
+    // Inner Content Tile el
+    .content-tile-container {
+      position: relative;
+      height: 100%;
+    }
+
+    figure, .content-tile__figure { height: 100%; }
+    
+    figcaption, .content-tile__figcaption {
+      height: 100%;
+      position: relative;
+      z-index: 2;
+      padding: 30px 30px 50px;
+      &::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        position: absolute;
+        top: 40px;
+        right: -15px;
+      }
+      .content-tile__title { font-family: @typefamily-serif; }
+    }
+    
+    img { height: auto; }
+    
+    @media (min-width: (@mobile + 1)) {
+      &[class*="text-right"] {
+        figcaption, .content-tile__figcaption {
+          &::after {
+            right: auto;
+            left: -15px;
+          }
+        }
+      }
+    }
+    
+    @media (max-width: @mobile) {
+      picture { position: static; }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      figcaption, .content-tile__figcaption {
+        margin-left: 0;
+        max-width: none;
+        &::after {
+          top: -15px;
+          right: auto;
+          left: 50%;
+          margin-left: -7px;
+        }
+      }
+      .content-tile__title { margin-top: 0; }
+    }
+    
+    
+  
+  } // end .content-tile-color-block
+
+  // Color block - full image
+  .content-tile-color-block--full-img {
+    // Call silent mixin
+    .colorBlockMixin;
+    figcaption, .content-tile__figcaption { max-width: 350px; }
+    picture {
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      right: 0;
+    }
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    @media (min-width: (@mobile + 1)) {
+      picture {
+        width: calc(~"100% - 350px");
+        .container-fluid & { width: 100%; }
+      }
+    }
+    @media (max-width: @mobile) {
+      figcaption, .content-tile__figcaption {
+        margin-left: 0;
+        max-width: none;
+      }
+      picture { position: static; }
+    }
+  } // end Color block - full image
+
+  // Color block - full image (left margin)
+  .content-tile-color-block--full-img--left-margin {
+    // All rules of Color block - full image
+    // as defined above
+    .content-tile-color-block--full-img;
+    @media (min-width: (@mobile + 1)) {
+      figcaption, .content-tile__figcaption { margin-left: 50px; }
+      picture { width: 100%; }
+    }
+  } // end Color block - full image (left margin)
+
+  // Color block - full image (text right)
+  .content-tile-color-block--full-img--text-right {
+    // All rules of Color block - full image
+    // as defined above
+    .content-tile-color-block--full-img;
+    figure, .content-tile__figure { .clear; }
+    figcaption, .content-tile__figcaption {
+      @media (min-width: (@mobile + 1)) {
+        width: 350px;
+        float: right;
+      }  
+    }
+    picture {
+      @media (min-width: (@mobile + 1)) {
+        right: auto;
+        left: 0;
+      }
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  } // end Color block - full image (text right)
+
+  // Color block - half image (text left)
+  .content-tile-color-block--half-img {
+    // Call silent mixin
+    .colorBlockMixin;
+    @media (min-width: (@mobile + 1)) {
+      figcaption, .content-tile__figcaption { width: 50%; }
+      picture {
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0;
+        height: 100%;
+        width: 50%;
+      }
+      img {
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: top center; 
+      }
+    }
+  } // end Color block - half image (text left)
+
+  // Color block - half image (text right)
+  .content-tile-color-block--half-img--text-right {
+    // All rules of Color block - half image
+    // as defined above
+    .content-tile-color-block--half-img;
+    @media (min-width: (@mobile + 1)) {
+      .content-tile-container { .clear; }
+      figcaption, .content-tile__figcaption { float: right; }
+      picture {
+        left: 0;
+        width: 50%;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+    }
+  } // end Color block - half image (text right)
+
+  // Efficiency
+  [class*="content-tile-color-block--"] {
+
+    &.bgcolor-- {
+      
+      &chalk-white {
+        figcaption, .content-tile__figcaption { 
+          background-color: @color--chalk-white;
+          &::after { border-color: @color--chalk-white; }
+        }
+      }
+      
+      &fresh-green {
+        figcaption, .content-tile__figcaption { 
+          background-color: @color--fresh-green;
+          &::after { border-color: @color--fresh-green; }
+        }
+      }
+      
+      &graphite-grey {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--graphite-grey;
+          &::after { border-color: @color--graphite-grey; }
+        }
+      }
+      
+      &grass-green {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--grass-green;
+          &::after { border-color: @color--grass-green; }
+        }
+      }
+      
+      &hot-pink {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--hot-pink;
+          &::after { border-color: @color--hot-pink; }
+        }
+      }
+      
+      &ice-blue {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--ice-blue;
+          &::after { border-color: @color--ice-blue; }
+        }
+      }
+      
+      &ink-black {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--ink-black;
+          &::after { border-color: @color--ink-black; }
+        }
+      }
+      
+      &ink-blue {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--ink-blue;
+          &::after { border-color: @color--ink-blue; }
+        }
+      }
+      
+      &juicy-orange {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--juicy-orange;
+          &::after { border-color: @color--juicy-orange; }
+        }
+      }
+      
+      &lime-green {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--lime-green;
+          &::after { border-color: @color--lime-green; }
+        }
+      }
+      
+      &marine-turquoise {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--marine-turquoise;
+          &::after { border-color: @color--marine-turquoise; }
+        }
+      }
+      
+      &midnight-blue {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--midnight-blue;
+          &::after { border-color: @color--midnight-blue; }
+        }
+      }
+      
+      &pearson-blue {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--pearson-blue;
+          &::after { border-color: @color--pearson-blue; }
+        }
+      }
+      
+      &purple-plum {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--purple-plum;
+          &::after { border-color: @color--purple-plum; }
+        }
+      }
+      
+      &royal-purple {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--royal-purple;
+          &::after { border-color: @color--royal-purple; }
+        }
+      }
+      
+      &soft-black {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--soft-black;
+          &::after { border-color: @color--soft-black; }
+        }
+      }
+      
+      &strawberry-red {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--strawberry-red;
+          &::after { border-color: @color--strawberry-red; }
+        }
+      }
+      
+      &sunshine-yellow {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--sunshine-yellow;
+          &::after { border-color: @color--sunshine-yellow; }
+        }
+      }
+      
+      &grey-95 {
+        figcaption, .content-tile__figcaption {
+          background-color: @color--grey-95;
+          &::after { border-color: @color--grey-95; }
+        }
+      }
+
+    }
+    
+    figcaption::after,
+    .content-tile__figcaption::after {
+
+      @media (min-width: (@mobile + 1)) {
+        border-left-width: 15px;
+        border-left-style: solid;
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
+        
+        :not([class*="-img--text-right"])& {
+          border-right-color: transparent !important;
+        }
+
+        [class*="-img--text-right"]& {
+          border-left: none;
+          border-right-width: 15px;
+          border-right-style: solid;
+        }
+      }
+
+      @media (max-width: @mobile) {
+        border-top: none;
+        border-left: 15px solid transparent !important;
+        border-right: 15px solid transparent !important;
+        border-bottom-width: 15px;
+        border-bottom-style: solid;
+      }
+
+    }
+    
+  }
+
+  // IE11, Edge 13, 14, 15 hack to solve object-fit; works same as if using polyfill for background-image: cover on parent (Edge 16 supports object-fit and will not be affected)
+  _:-ms-fullscreen, :root {
+    [class*="content-tile-color-block--"] {
+      img { max-height: inherit; }
+    }
+  }
+
+  .object-fit--false {
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: top center;
+    background-size: cover;
+    img {
+      display: none;
+      @media (max-width: @mobile) { display: block; }
+    }
+  }

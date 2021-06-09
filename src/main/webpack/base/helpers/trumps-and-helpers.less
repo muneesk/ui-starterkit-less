@@ -1,0 +1,260 @@
+/* trumps-and-helpers.helpers.less
+
+  WIP
+  ================================================== */
+
+
+  // HEIGHT.HELPERS.LESS
+  .min-height {
+    &--400 { min-height: 400px; }
+    &--600 { min-height: 600px; }
+    &--45vh { min-height: 45vh; }
+    &--65vh { min-height: 65vh; }
+  }
+
+
+
+
+
+
+  // HELPERS.CATCHALL.LESS
+  /* Prevent 1px 3rd party tracker image from rendering gap below footer */
+  body > img[width] { display: none; }
+
+
+
+
+
+
+  // RULES.HELPERS.LESS (dividers = horizontal) for use on <section> (Column Control) component only
+  .rule {
+    display: block;
+    content: "";
+    height: 1px;
+    margin: 0 auto;
+    width: 100%;
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
+  .uses-rule-top {
+    &--light::before, &--dark::before { .rule; }
+    &--light::before { background-color: rgba(255, 255, 255, .75); }
+    &--dark::before { background-color: rgba(0, 0, 0, .25); }
+  }
+
+
+
+
+
+
+  // DISPLAY.HELPERS.LESS (show/hide)
+  .hide, .hidden { display: none !important; }
+  .display--block { display: block !important; }
+  .display--inline-block { display: inline-block !important; }
+  // Show in auth mode but not in pub
+  .hidden-for-pub {
+    display: none !important;
+    .cq-wcm-edit & { display: block !important; }
+  }
+  .only-desktop { @media (max-width: @tablet) { display: none; } }
+
+
+
+
+
+
+  // LINKS.HELPERS.LESS
+  // Underline links
+  .underline-links a { text-decoration: underline; }
+
+
+
+
+
+  // VENDOR-OVERRIDES.BASE.LESS
+  // Bootstrap 4.3
+  // svg vertical-align is set to 'middle' as global rule
+  svg { vertical-align: inherit; }
+
+
+
+
+
+  // TYPOGRAPHY.HELPERS.LESS
+  // -- OR --
+  // INTRO-COPY.COMPONENT.LESS
+  // .intro-copy = should prob exist elsewhere
+  .intro-copy {
+    p {
+      color: @color--grey-15;
+      font-size: 2.2rem; // No equivalent in typographic scale
+      @media (max-width: @tablet) { font-size: @typesize-h6; }
+      @media (max-width: @mobile) { margin: 10px 0; }
+    }
+  }
+
+
+
+
+
+
+
+  // THIS IS A DIVIDER TYPE OF BORDER
+  // NOT JUST ABOUT BORDERS (LOOK AT ALL THE OTHER RULES)
+  // NOT CLEAR HOW TO CATEGORIZE
+  .column-border-middle {
+
+    > .container > .row {
+
+      > .col-12 {
+        height: max-content;
+
+        &::before {
+          content: "";
+          display: block;
+          height: calc(~"100% - 50px");
+          width: 1px;
+          background: @color--grey-75;
+          position: absolute;
+          top: 40px;
+          left: -10px;
+        }
+
+        &:first-child {
+          &::before { display: none; }
+        }
+
+        @media (max-width: (@tablet - 1)) {
+          &::before {
+            height: 10px;
+            width: 100%;
+            background-color: @color--chalk-white;
+            position: static;
+            margin: 30px 0;
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+  // THIS IS A DIVIDER TYPE OF BORDER
+  // NOT JUST ABOUT BORDERS (LOOK AT ALL THE OTHER RULES)
+  // NOT CLEAR HOW TO CATEGORIZE
+  .column-border-between-rows {
+    > .container,
+    > .row {
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: @color--grey-75;
+        position: absolute;
+        bottom: -13px;
+        max-width: 1180px;
+        left: 10px;
+      }
+    }
+    >.row {
+      padding-bottom: 20px;
+      &::after { bottom: 12px; }
+    }
+  }
+
+  // THIS IS ABOUT MORE THAN JUST BORDERS
+  // IN FACT IT HAS NO BORDER RULES ASSOCIATED TO IT AT ALL!
+  // IS THIS EVEN USED NOW?
+  .border-line {
+    display: block;
+    margin: 30px 0;
+    width: 100%;
+    height: 4px;
+    background: @color--grey-85;
+  }
+
+
+
+
+
+
+  //HELPERS (FLOATS) == NOT SURE IF WE NEED TO KEEP
+  .left { float: left; }
+  .right { float: right; }
+
+  
+
+
+
+
+  // MARGINS.HELPERS.LESS -- NEED A COMPREHENSIVE/CONSOLIDATED/COORDINATED SOLUTION
+  // Need a more robust method similar to padding mixins and helper classes
+  .has-margin { 
+    &--none { margin: 0 !important; }
+    &-bottom--none { margin-bottom: 0 !important; }
+  }
+
+  //HELPERS (MARGINS)
+  .push-top-25 { margin-top: 25px; }
+
+  //HELPERS (MARGINS)
+  .pull-up-20 { margin-top: -20px; }
+
+  //HELPERS (MARGINS)
+  .pull-up {
+    &-5-percent { margin-top: -5%; }
+    &-10-percent { margin-top: -10%; }
+  }
+
+  //HELPERS (MARGINS)
+  .margin-auto > * {
+    margin: auto;
+  }
+
+  // Not in auth mode
+  .edit [class*="pull-up-"] { margin-top: 0; }
+
+  //HELPERS (MARGINS)
+  .remove-bottom-margin-40 { margin-bottom: -40px; }
+
+  //HELPERS (MARGINS)
+  .margin-20 { margin: 20px; }
+
+
+
+
+
+
+
+  // HELPERS (GRID LAYOUT)
+  // Needs to be a better way to do this or components
+  // should have option to set max-width from authoring
+  // dialog.
+  .max-width--col-10 {
+    max-width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+
+  // HELPERS (Background Video)
+  // These are really just temp rules for
+  // promoting Pearson+ (Mojo) on the p.com
+  // home page
+  .custom-mask .background-video__contrast-mask {
+    background-color: transparent !important;
+    background: linear-gradient(146.75deg,rgba(28,34,46,0.85) 39.55%,rgba(28,34,46,0) 85.56%);
+    opacity: 1 !important
+}
+
+.background-video__control--left .background-video__control {
+    left: 30px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    z-index: 4
+}
+

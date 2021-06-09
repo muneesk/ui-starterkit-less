@@ -1,0 +1,21 @@
+/* content-filter.component.less
+
+  FE customization of AEM CORE form component
+  ================================================== */
+  .dropdown-filter {
+    label { display: block; }
+    .dropdown-list-custom { display: inline-block; }
+    @media (max-width: @mobile) { .dropdown-list-custom { display: block; } }
+  }
+  .submit-filter {
+      display: inline-block;
+      margin-left: 30px;
+      transform: translateY(1px);
+      -webkit-transform: translateY(1px);
+      @media (max-width: @mobile) {
+          display: block;
+          margin-left: 0;
+          button { width: 100%; }
+      }
+  }
+  .clear-content-filter { display: block; }

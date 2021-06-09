@@ -1,0 +1,43 @@
+/* dropdown.component.less
+
+  FE
+  Notes: yet another faux dropdown? Developed for
+  Learner project (?)
+  ================================================== */
+  @dd-items-spacing: 15px;
+  @dd-small-input-width: 200px;
+  @dd-medium-input-width: 300px;
+
+  .dropdown {
+    align-items: center;
+    label { margin-bottom: 0; }
+    .select-wrapper { margin-left: @dd-items-spacing; }
+  }
+
+  .dropdown--inline {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+  }
+
+  .dropdown--block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+
+    .select-wrapper {
+      -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+
+  }
+
+  .dropdown--small {
+    select { width: @dd-small-input-width; }
+  }
+
+  .dropdown--medium {
+    select { width: @dd-medium-input-width; }
+  }

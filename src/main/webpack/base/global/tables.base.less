@@ -1,0 +1,69 @@
+/* tables.base.less
+
+  ================================================== */
+  // .table = Bootstrap class name
+  // .table-responsive = AEM + Bootstrap
+  // Global~generics
+  table, .table-responsive, thead, tbody, tfoot, tr, th, td {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    color: inherit;
+    border: 0;
+    .p-0();
+    margin: 0;
+    vertical-align: baseline;
+  }
+
+  table, .table-responsive {
+    width: 100%;
+    border-spacing: 0;
+    text-align: left;
+    
+    tr {
+      &:nth-child(odd) { background-color: @color--grey-95; }
+      &:nth-child(even) { background-color: @color--chalk-white; }
+      &:first-child { background-color: transparent; }
+    }
+    
+    td, th {
+      line-height: @leading--default;
+      padding: 20px;
+      border-top: 0;
+      vertical-align: top;
+    }
+    
+    th {
+      font-weight: @typeweight--semi-bold;
+      background-color: @color--ice-blue;
+      color: @color--soft-black;
+    }
+    
+    td {
+      &:first-child { .pl-30(); }
+      @media (max-width: @tablet) {
+        font-size: 1.5rem; // no scale equivalent in typography.variables.less
+        padding: 10px 5px;
+      }
+
+      &.column-title { 
+        color: @color--grey-35;
+        // Why does this class change on tablet but .table-title on mobile?
+        @media (max-width: @tablet) { font-size: @typesize-minor; }
+      }
+
+      &.table-title {
+        font-weight: @typeweight--semi-bold;
+        color: @color--midnight-blue;
+        // Why does this class change on mobile but .column-title on tablet?
+        @media (min-width: (@mobile + 1)) { font-size: @typesize-h5; }
+        @media (max-width: @mobile) { font-size: @typesize-h6; }
+      }
+      
+      p:only-of-type { margin: 0; } // Seems like RTE will sometimes wrap cell content in para
+    }
+    
+    * + & { margin-top: 20px; }
+    
+  }

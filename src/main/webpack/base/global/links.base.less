@@ -1,0 +1,21 @@
+/* links.base.less
+
+  WIP
+  ================================================== */
+  a {
+    color: @color--pearson-blue-link;
+    text-decoration: none;
+
+    &:hover, &:active, &:focus {
+      color: @color--pearson-blue-link;
+      text-decoration: underline;
+    }
+
+    // Bootstrap override :: pseudo has higher specificity (what?)
+    &:not([href]):not([tabindex]) {
+      color: @color--pearson-blue-link;
+      text-decoration: none;
+      &:hover, &:active, &:focus { text-decoration: underline; }
+    }
+
+  }

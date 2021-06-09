@@ -1,0 +1,69 @@
+/* forms.base.less
+
+  ================================================== */
+  // Global~generics
+  label:not(.control-label):not([class*="x-form"]) {
+    .c-form-label;
+    margin-bottom: 0; // Override BS 4.3.1 rule
+    
+    + input,
+    + select {
+      margin-top: 5px;
+    }
+    
+  }
+
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]),
+  select,
+  textarea,
+  .input,
+  .form-control {
+    .c-form-control; // Shared mixin (contains :focus state rules also)
+  }
+  
+  textarea {
+    height: auto;
+    min-height: 120px;
+  }
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    // Cannot use ::after or ::before directly on <select>
+    background-image: url("@{image-path}/icon-chevron-down--pearson-blue.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: right 15px top 50%;
+  }
+
+  input {
+    &[type="checkbox"],
+    &[type="radio"] {
+      + label { 
+        display: inline-block;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  legend,
+  .control-label {
+    font-family: @typefamily-sans;
+    font-size: @typesize-default;
+    font-weight: @typeweight--default;
+    color: @color--cappuccino;
+    display: inline-block;
+    width: auto;
+    max-width: fit-content;
+    margin-bottom: 5px;
+  }
+
+  // Some AEM form components use .control-label for
+  // <label> and~or <legend>
+  legend.control-label {
+    font-weight: @typeweight--semi-bold;
+    margin-bottom: 7.5px;
+  }
+
+  .help-block { .c-help-block; }

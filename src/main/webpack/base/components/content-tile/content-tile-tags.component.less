@@ -1,0 +1,38 @@
+/* content-tile-tags.component.less
+
+  ================================================== */
+  // No idea what this is for. A list of "tags" that
+  // help sort Content Tiles maybe? Class is also referenced
+  // in tags-filter.js -- but so are a lot of elements.
+  // Leaning toward this not being needed any longer but will
+  // keep it for now. Developers: use comments to document 
+  // your work!
+  .content-tile-tags {
+    line-height: @leading--1-2;
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    display: block;
+    padding: 0 20px 20px;
+    margin: 0;
+
+    li {
+      font-size: @typesize-default;
+      color: @color--pearson-blue-link;
+      display: inline-block;
+      list-style-type: none;
+      margin-right: 5px;
+
+      &:after {
+        content: ",";
+        display: inline-block;
+        margin-left: 1px;
+      }
+
+      &:last-child::after { display: none; }
+
+    }
+
+    a { display: inline-block; }
+
+  }

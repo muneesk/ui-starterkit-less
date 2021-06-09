@@ -1,0 +1,128 @@
+/* footer.component.less
+
+  ================================================== */
+  footer {
+    position: relative;
+    z-index: 1;
+    
+    ul { padding: 0; }
+    li { list-style-type: none; }
+    
+  }
+
+  .footer {
+    
+    // Top band
+    &-top-links.footer-top-links {
+      background-color: @color--pearson-blue-nav;
+      padding: 10px 0;    
+    }
+    
+    // Main section
+    &-main-links.footer-main-links {
+      background-color: @color--ink-blue;
+      padding: 30px 0;
+      
+      @media (max-width: (@tablet - 1)) {
+        > .container > .row > [class*="col-"] + [class*="col-"] > .content-tile { margin-top: 30px; }
+      }
+      
+      a { color: @color--grey-95; }
+
+      .content-tile__title.content-tile__title {
+        font-family: @typefamily-sans;
+        font-size: @typesize-h6;
+        font-weight: @typeweight--semi-bold;
+        line-height: @leading--1-2 !important;
+        color: @color--grey-95;
+        margin: 0;
+        + * { margin-top: 1.6rem; }
+      }
+
+      li {
+        display: block;
+        padding: 0;
+        
+        + li {
+          margin-top: 10px;
+          @media (max-width: (@tablet - 1)) { margin-top: 15px; }
+        }
+        
+      }
+    
+    }
+    
+    // Bottom section
+    &-legal-notes.footer-legal-notes {
+      background-color: @color--ink-blue;
+      border-top: 1px solid rgba(255, 255, 255, 0.5);
+      padding: 20px 0;
+      
+      .text {
+        @media (max-width: 560px) { display: block; }
+        @media (min-width: 561px) {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+        }
+        
+        a { color: @color--grey-70; }
+
+        ul {
+          font-size: @typesize-minor;
+          @media (max-width: 560px) { // Why 560px?
+            > li {
+              display: block;
+              padding: 0;
+              margin: 0;
+            }
+          }
+          @media (min-width: 561px) { // Again = why this odd measure?
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+             margin: 0 auto 15px 0;
+            li + li { margin-left: 40px; }
+          
+          }
+          @media (max-width: 745px) { > li { margin-bottom: 15px; } } // More odd measures = 745px?
+        }
+      
+      }
+    
+    }
+
+  }
+
+  // Used to be needed for Cookie Notification before it was moved to 3rd party implementation
+  .iparsys {
+    position: relative;
+    z-index: 3;
+  }
+
+  // Copyright data
+  .copyright-data-container.copyright-data-container {
+    font-size: @typesize-minor;
+    color: @color--grey-70;
+    margin: 0;
+
+    @media (max-width: 560px) { display: block; }
+
+    @media (min-width: 561px) {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+    }
+
+    a {
+      color: inherit;
+      line-height: inherit;
+      margin-top: inherit;
+      &:hover, &:active, &:focus { color: inherit; }
+      }
+
+  }

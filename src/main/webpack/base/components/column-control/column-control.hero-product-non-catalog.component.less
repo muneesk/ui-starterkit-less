@@ -1,0 +1,86 @@
+  // Creates specific type of hero space
+  // Associated JS grabs a child Content Tile's
+  // image and uses it as a background-image
+  // for the Content Tile (that must be authored in
+  // second column.)
+  .column-control-hero-product-non-catalog {
+
+    h4 { font-weight: @typeweight--semi-bold; }
+
+    > .container > .row {
+
+      > .col-md-6 {
+        // Contains text content
+        &:first-of-type {
+          padding-bottom: 15px;
+          @media (max-width: (@tablet - 1)) {
+            [class*="has-padding-bottom--"]& { padding-bottom: 30px; }
+          }
+          @media (min-width: (@mobile + 1)) {
+            .has-padding-bottom--none& { padding-bottom: 0; }
+            .has-padding-bottom--15& { padding-bottom: 15px; }
+            .has-padding-bottom--30& { padding-bottom: 30px; }
+            .has-padding-bottom--45& { padding-bottom: 45px; }
+            .has-padding-bottom--60& { padding-bottom: 60px; }
+            .has-padding-bottom--75& { padding-bottom: 75px; }
+            .has-padding-bottom--90& { padding-bottom: 90px; }
+          }
+          @media (max-width: @mobile) {
+            .text:first-of-type, .title { padding-top: 20px; }
+          }
+        }
+
+        // Contains Content Tile
+        &:last-of-type {
+
+          .content-tile {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-position: top center;
+
+            figure { display: none; }
+
+            @media (min-width: @screen-lg) {
+              width: 120%;
+              picture {
+                width: 120%;
+                overflow-y: hidden;
+              }
+            }
+
+            @media (max-width: (@tablet - 1)) {
+              margin-top: 0 !important; // Needed to override inline style rules our JS generates
+              margin-right: 0;
+            }
+
+            // Needed to override inline style rules our JS generates
+            @media (max-width: 420px) { height: 280px !important; }
+
+          }// End .content-tile
+
+          @media (min-width: @tablet) { padding-right: 0; }
+          @media (max-width: (@tablet - 1)) { padding: 0; }
+
+        }// End last col-md-6
+
+      }// End .col-md-6
+
+    }// End .row
+
+    @media (max-width: (@tablet - 1)) {
+      padding-bottom: 0 !important;
+      height: auto !important;
+
+      &[class*="has-padding-bottom--"] {padding-bottom: 0; }
+
+    }
+    
+    // Don't think we need this with BS flex grid
+    + section::before {
+      content: "";
+      display: table;
+      clear: both;
+    }
+ 
+  }

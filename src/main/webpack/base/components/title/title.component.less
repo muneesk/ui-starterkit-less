@@ -1,0 +1,18 @@
+/* title.component.less
+
+  ================================================== */
+  .title {
+
+    &:first-of-type {
+      h1, h2 { margin: 0; }
+    }
+
+    // Global if sibling rule
+    + * { margin-top: 20px; }
+
+  }
+
+  // When Title Component follows Text Component
+  .text ~ .title {
+    h4, h3 { margin-top: 40px; }
+  }

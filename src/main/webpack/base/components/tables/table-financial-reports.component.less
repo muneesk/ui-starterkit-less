@@ -1,0 +1,64 @@
+/* table-financial-reports.component.less
+
+  .table-financial-reports = FE
+  ================================================== */
+  .table-financial-reports {
+
+    tr:last-child { 
+      td { border-bottom: none; }
+    }
+
+    th {
+      font-family: @typefamily-serif;
+      font-size: @typesize-h3;
+      font-weight: normal;
+      color: @color--soft-black;
+      padding-top: 10px;
+      padding-bottom: 15px;
+      text-align: left;
+      border-bottom: none;
+    }
+
+    td {
+      color: @color--grey-15;
+      text-align: left;
+      border-bottom: 1px solid @color--grey-75;
+
+      a { font-size: inherit; }
+
+      &.column-title {
+        font-size: @typesize-default;
+        color: @color--grey-35;
+      }
+
+      &.table-title {
+        font-family: @typefamily-serif;
+        font-size: @typesize-h3;
+        color: @color--soft-black;
+        padding-top: 10px;
+        .pb-30();
+      }
+
+      &:first-child {
+        width: 40%;
+      }
+
+      &.no-border {
+        border-bottom: none;
+        padding-bottom: 35px;
+      }
+
+      &.no-padding { .p-0(); }
+
+      @media (min-width: (@tablet + 1)) {
+        font-size: @typesize-h6;
+        padding: 18px 20px;;
+      }
+      @media (max-width: @tablet) {
+        font-size: @typesize-default;
+        padding: 10px 5px;
+      }
+
+    }
+
+  }

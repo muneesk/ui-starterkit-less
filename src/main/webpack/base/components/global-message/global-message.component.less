@@ -1,0 +1,21 @@
+.global-message {
+    a {
+        text-decoration: underline;
+    }
+
+    &.bgcolor {
+        &--default .pmc-alert--banner {
+            background-color: @color--blizzard-blue-15;
+        }
+
+        &--ink-black {
+            .pmc-alert--banner {
+                background-color: @color--soft-black;
+            }
+
+            .pmc-alert__content * {
+                color: @color--white;
+            }
+        }
+    }
+}

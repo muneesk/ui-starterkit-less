@@ -1,0 +1,48 @@
+/* link-list.component.less
+
+  ================================================== */
+  .link-list:not(.nested-tabs) { width: 100%; }
+  .link-list a {
+    word-break: normal;
+    display: block;
+  }
+
+  .link-list {
+
+    p:first-of-type {
+      border-bottom: 1px solid @color--grey-75;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      b {
+        color: @color--soft-black;
+        text-transform: uppercase;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    li {
+      border-bottom: 1px solid @color--grey-75;
+      &::before { display: none; }
+      &:last-child { border-bottom: none; }
+      br { display: none; }
+
+      @media (min-width: @tablet) { padding: 20px 0; }
+      @media (max-width: @tablet) {
+        &:last-child { border-bottom: 1px solid @color--grey-75; }
+      }
+      @media (max-width: (@tablet - 1)) { 
+        padding: 0;
+        > a { padding: 20px; }
+      }
+    }
+
+  }
+
+  // Margins in relation to siblings
+  * + .link-list.link-list:not(.nested-tabs) { margin-top: 20px; }

@@ -1,0 +1,290 @@
+/* buttons.component.less
+
+  Since there is no dedicated button component or
+  method of applying class names directly to a nested
+  element we need to define rules based on parent
+  container.
+
+  ================================================== */
+  // Abstracted rules for all buttons
+  .button() {
+    font-family: @typefamily-sans;
+    font-size: @typesize-default;
+    font-weight: @typeweight--semi-bold;
+    line-height: @leading--1-4;
+    white-space: normal;
+    text-decoration: none;
+    position: relative;
+    vertical-align: middle;
+    padding: .88em 1.66em;
+    border-radius: .22em;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+    cursor: pointer;
+    .transition(0.135s);
+    
+    @media (min-width: (@mobile + 1)) {
+      display: inline-block;
+      margin: 0 15px 20px 0;
+    }
+    
+    @media (max-width: @mobile) {
+      display: block;
+      text-align: center;
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &:hover, &:active, &:focus { text-decoration: none; }
+    &:only-of-type { margin: 0; }
+
+    // Disabled
+    &.disabled-btn,
+    &.button--is-disabled,
+    &[disabled] {
+      background-color: @color--grey-85;
+      color: @color--grey-35;
+      border-color: @color--grey-85;
+      pointer-events: none;
+
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+        cursor: default;
+        background-color: @color--grey-85;
+      }
+    }
+
+  }
+
+  // Shared rules for (h)over, (a)ctive, (f)ocus
+  .button-haf() {
+    color: @color--soft-black;
+    background-color: @color--chalk-white;
+    border-color: currentColor;
+  }
+
+  // Primary button
+  .button-primary-base() {
+    color: @color--chalk-white;
+    background-color: @color--soft-black;
+
+    &::after {
+      .icon-inline;
+      background-image: url("@{image-path}/
+icon-chevron-right--white.svg");
+      padding: 6px 4px;
+    }
+
+    &:hover, &:active, &:focus {
+      .button-haf;
+      &::after {
+        opacity: 1;
+        background-image: url("@{image-path}/
+icon-chevron-right--soft-black.svg");
+      }
+    }
+
+  }
+
+  // Secondary button
+  .button-secondary-base() {
+    .button-haf; // Confusing: but happens to match default colors for secondary button
+    
+    &:hover, &:active, &:focus {
+      color: @color--chalk-white;
+      background-color: @color--soft-black;
+      border-color: @color--soft-black;
+    }
+
+  }
+
+  // Global for any .button-* class
+  [class*="button-"] {
+    *:not(div)&, a:not([name]):not([id]) {
+      .button;
+    }
+    // If parent has .button-* class, do not render these inside child links
+    ([href$=".doc"]),
+    ([href$=".docx"]),
+    ([href$=".pdf"]),
+    ([href$=".txt"]) {
+      > span, > br { display: none; }
+    }
+    
+  }
+
+  // Do we need to still cover [type="button"] or [type="reset"], too?
+  button { .button; }
+
+  // If applied to parent container (targets children)
+  // If applied directly to element
+  // There is confusion over which class is correct:
+  // Double-dash "--primary, --secondary" or single dash
+  // AEM Core references double dash for Hero Carousel
+  // and User Role Selector while authoring environment
+  // and repo refer to single dash. Keeping both generates
+  // about 70 lines of duplicate rules so in future might
+  // be good to revisit and align
+  // Primary button
+  .button-primary,
+  .button--primary {
+    *:not(div)&, a:not([name]):not([id]) {
+      .button;
+      .button-primary-base; 
+    }
+  }
+
+  // Secondary button
+  .button-secondary,
+  .button--secondary {
+    *:not(div)&, a:not([name]):not([id]) {
+      .button;
+      .button-secondary-base;
+    }
+  }
+
+  // Bootstrap .btn-* class on parent container
+  div.btn-primary, div.btn-secondary {
+    display: block;
+    background: none;
+    background-color: inherit;
+    border: none;
+    border-color: inherit;
+
+    &:not(:disabled) {
+      &:hover, &:active, &:focus {
+        background: none;
+        background-color: inherit;
+        border: none;
+        border-color: inherit;
+      }
+    }
+
+  }
+
+  // Sunshine yellow
+  .button--sunshine-yellow {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--soft-black;
+      background-color: @color--sunshine-yellow;
+      &:hover, &:active, &:focus { .button-haf; }
+    }
+  }
+
+  // Lime green
+  .button--lime-green {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--soft-black;
+      background-color: @color--lime-green;
+      &:hover, &:active, &:focus { .button-haf; }
+    }
+  }
+
+  // Ice blue
+  .button--ice-blue {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--soft-black;
+      background-color: @color--ice-blue;
+      &:hover, &:active, &:focus { .button-haf; }
+    }
+  }
+
+  // White
+  .button--white {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--soft-black;
+      background-color: @color--chalk-white;
+      &:hover, &:active, &:focus {
+        color: @color--chalk-white;
+        background-color: @color--soft-black;
+        border-color: @color--soft-black;
+      }
+    }
+  }
+
+  // Ghosted (against light background)
+  .button-ghost--on-light {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--soft-black;
+      background-color: transparent;
+      border-color: @color--soft-black;
+      &:hover, &:active, &:focus {
+        color: @color--chalk-white;
+        background-color: @color--soft-black;
+        border-color: @color--soft-black;
+      }
+    }
+  }
+
+  // Ghosted (against dark background)
+  .button-ghost--on-dark {
+    *:not(div)&, a:not([name]):not([id]) {
+      color: @color--chalk-white;
+      background-color: transparent;
+      border-color: @color--chalk-white;
+      &:hover, &:active, &:focus {
+        color: @color--soft-black;
+        background-color: @color--chalk-white;
+        border-color: @color--chalk-white;
+      }
+    }
+  }
+
+  // Block (full-width)
+  .button--block {
+    *:not(div)&, a:not([name]):not([id]) {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  // Small
+  .button--small {
+    *:not(div)&, a:not([name]):not([id]) { font-size: @typesize-milli-plus !important; }
+  }
+
+  // Unstyled but still a button
+  .button--unstyled {
+    *:not(div)&, a:not([name]):not([id]) {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+      background: transparent;
+      border: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // CTA Primary button
+  .button--ctap { .button--sunshine-yellow; }
+
+  // Home button
+  .button--home {
+    .button--white;
+    @media (max-width: 320px) {
+      font-size: .9em;
+      padding: .44em 1.66em;
+    }
+  }
+  
+  // Button inside forms
+  .button--form {
+    height: 48px;
+    box-sizing: border-box;
+    &[href] { line-height: 1.15; }
+  }
+
+  // Temp
+  // Note: R13 release will move this to aem-core clientlib
+  // for Global Message component (double-up on class there)
+  // When that deployment happens we remove rule below from
+  // pDotCom theme
+  .pmc-alert__dismiss.pmc-alert__dismiss { margin: 4px 0 0 auto; }

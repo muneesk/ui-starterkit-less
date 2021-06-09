@@ -1,0 +1,47 @@
+/* content-tile-expander-show-more.component.less
+
+  Note: This is a Content Tile option. Under Styles >
+  Layout: "Enhanced expander (show more)"
+  ================================================== */
+  .content-tile-expander-show-more {
+
+    figcaption, .content-tile__figcaption {
+      padding: 20px;
+      background-color: @color--chalk-white;
+    }
+
+    .content-tile__title {
+      font-size: @typesize-h4;
+      font-weight: @typeweight--default;
+      color: @color--soft-black;
+    }
+
+    picture {
+      padding: 0;
+      position: relative;
+      max-height: 250px;
+    }
+
+    &.grey-border {
+      border: 1px solid @color--grey-85;
+      picture { border-bottom: 1px solid @color--grey-85; }
+    }
+
+  }
+
+  .expander-show-more-btn {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .expander-show-more-cta {
+    border: none;
+    background: transparent;
+    color: @color--pearson-blue-link;
+    font-size: inherit;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .content-tile-text--more { margin-top: 20px; }

@@ -1,0 +1,265 @@
+/* tab-panel.component.less
+
+  AEM Core component (.tab-panel)
+  ================================================== */
+  .cq-wcm {
+    &-edit, &-preview {
+      .tab-panel.tab-panel {
+        opacity: 1;
+        visibility: visible;
+      }
+      .tab-content > .tab-pane {
+        display: none;
+        &.active { display: block !important; }
+      }	
+	}
+  }
+
+  // Container for AEM component (holds triggers [tabs] & targets [panes])
+  .tab-panel {
+    opacity: 0;
+	visibility: hidden;
+    background: @color--grey-95;
+	padding: 10px;
+	transition: all .2s ease-in-out;
+
+    &.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+	// Unordered list inside nav
+	.nav-tabs {
+      list-style: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      .clear;
+
+      > li {
+        display: block;
+        float: left;
+        padding: 0;
+        margin: 0;
+
+        > a {
+          font-size: @typesize-h6;
+          color: @color--pearson-blue-link;
+          cursor: pointer;
+          position: relative;
+          padding: 10px 30px;
+          margin: 0;
+          transition: background .2s ease-in-out;
+
+          &:hover, &:active, &:focus { text-decoration: none; }
+
+          // Reserve space for '.active' type weight space
+          &::after {
+            display: block;
+            content: attr(data-text);
+            font-weight: @typeweight--semi-bold;
+            height: 0;
+            visibility: hidden;
+            overflow: hidden;
+            text-align: center;
+          }
+
+        }
+
+        // AEM component applies "active" class
+        // to parent list item but it should
+        // only have presentation role
+        &.active {
+
+          a {
+            font-weight: @typeweight--semi-bold;
+            background-color: @color--chalk-white;
+            &::before { 
+              opacity: 1;
+              width: 100%;
+              -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+              -webkit-transform-origin: center;
+              transform-origin: center;
+            }
+          }
+
+        }
+
+      }
+
+    } // End .nav-tabs
+
+    // Mobile trigger wrapper created in tab-panel JS
+	.tab-panel-nav-item { display: none; }
+
+	// Tab content (target)
+	.tab-pane {
+      border: none;
+      background: @color--chalk-white;
+      padding: 30px;
+
+      // Odd rules about specific els within tab-pane (legacy tech debt)
+      > *:first-child > *:first-child { margin-top: 0; }
+      .title { text-align: left; }
+      .add-grey-border { border-bottom: 4px solid @color--grey-95; }
+      .content-tile-book-box-simple .content-tile__title { font-size: @typesize-h6; }
+      &.active.fade { opacity: 1; }
+
+    } // End .tab-pane
+
+	// Mobile rules + content
+	@media all and (max-width: 660px) { 
+		padding: 0;
+
+		.tab-pane {
+			padding: 0;
+
+			// Odd rules about specific els within tab-pane (legacy tech debt)
+			p { margin: 10px 0; }
+			> *:first-child > *:first-child { margin-top: auto; }
+
+		}
+
+		> nav { display: none; }
+
+		.tab-panel-nav-item {
+			display: block;
+			margin: 10px 0;
+
+			a {
+				font-size: @typesize-h6;
+				color: @color--pearson-blue-link;
+				background: @color--grey-95;
+				display: block;
+				width: 100%;
+				padding: 15px 20px;
+				position: relative;
+				.transition(0.2s);
+
+				&::after {
+                    content: "";
+					position: absolute;
+					top: calc(~"50% - 5px");
+					right: 20px;
+					width: 10px;
+					height: 10px;
+					border-right: 2px solid #006f8f;
+					border-bottom: 2px solid #006f8f;
+					-webkit-transform: rotate(45deg);
+					transform: rotate(45deg);
+					-webkit-transform-origin: 70% 70%;
+					transform-origin: 70% 70%;
+					-webkit-transition: -webkit-transform 0.1s ease;
+					transition: -webkit-transform 0.1s ease;
+					transition: transform 0.1s ease;
+					transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+                }
+
+			}
+
+			&.active {
+
+				a {
+					
+					&::after {
+                        -webkit-transform: rotate(-135deg);
+                        transform: rotate(-135deg);
+                    }
+
+					&::before {
+						content: '';
+						display: block;
+						width: 100%;
+						height: 4px;
+						background: @color--pearson-blue;
+						position: absolute;
+						bottom: -4px;
+						left: 0;
+					}
+
+				}
+
+			}
+
+		}
+
+		// Odd rules about specific els within tab-pane (legacy tech debt)
+		.clear-filter { margin: 20px 0 30px; }
+		.dropdown-list { margin-bottom: 20px; }
+	}
+
+	article & {
+		.nav-tabs > li a { text-decoration: none; }// What?
+	}
+	
+}// End .tab-panel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Form elements inside .tab-panel (?)
+  .tab-panel .forms,
+  .form-date-filter .forms {
+    max-width: none;
+    border-top: none;
+    padding: 0;
+    > div > * {
+      display: inline-block;
+      margin-right: 30px;
+    }
+
+    .cq-wcm-edit & {
+      > div > * {
+        display: block;
+        margin-right: 0;
+      }
+    }
+
+    .submit-button {
+      margin: 20px 0;
+      padding-top: 0;
+      border-top: none;
+      margin-bottom: 0;
+      @media (max-width: @mobile) { button { width: 100%; } }
+    }
+
+    .control-label {
+      color: @color--soft-black;
+      font-family: @typefamily-sans;
+      font-weight: @typeweight--semi-bold;
+      margin: 10px 0;
+    }
+    @media (max-width: @mobile) {
+      .control-label { font-size: 1.8rem; }
+      > div > * {
+        display: block;
+        margin-right: 0;
+      }
+    }
+
+  }

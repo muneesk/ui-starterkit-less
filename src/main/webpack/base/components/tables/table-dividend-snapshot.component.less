@@ -1,0 +1,64 @@
+/* table-dividend-snapshot.component.less
+
+  .table-dividend-snapshot = FE
+  ================================================== */
+  .table-dividend-snapshot {
+    background: @color--chalk-white;
+    border-top: 4px solid @color--soft-black;
+    @media (max-width: @mobile) { .py-30(); }
+    @media (min-width: (@mobile + 1)) { .p-30(); }
+
+    h4 {
+      font-size: @typesize-h5;
+      padding: 0 0 20px 0;
+      margin: 0;
+    }
+
+    tr {
+      &:first-child, &:nth-child(2) { border-bottom: none; }
+
+      &:first-child {
+        td {
+          border-bottom: none;
+          padding: 0;
+        }
+      }
+
+      &:nth-child(2) {
+        td {
+          text-transform: uppercase;
+          border-bottom: none;
+          padding: 0 15px 15px 0;
+        }
+      }
+
+      &:last-child td { border-bottom: 1px solid @color--grey-75; }
+    }
+
+    td {
+      font-size: @typesize-minor;
+      color: @color--grey-15;
+      text-align: right;
+      .p-15();
+      border-bottom: 1px solid @color--grey-75;
+
+      &:first-of-type { text-align: left; }
+      &:last-child { color: inherit; }
+
+      &.amount-info {
+        i {
+          font-style: normal;
+          font-family: @typefamily-serif;
+          font-size: @typesize-h3;
+          font-feature-settings: "lnum" 0;
+          line-height: @leading--1;
+          color: @color--pearson-blue-link;
+
+          @media (max-width: @tablet-landscape) { font-size: @typesize-h3; }
+          @media (max-width: @mobile) { display: block; }
+        }
+      }
+
+    }
+
+  }

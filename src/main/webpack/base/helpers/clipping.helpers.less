@@ -1,0 +1,26 @@
+/* clipping.helpers.less
+  ================================================== */
+  // Curved sections using clip-path
+  // Explanation: clip-path: ellipse(radius-x radius-y at x y)
+  [class*="curve-"] { overflow: hidden; }
+  [class*="curve-top-"] {
+    @media (max-width: @tablet) { padding-top: 75px; }
+  }
+  .curve {
+    &-bottom-right {
+      @media (min-width: @tablet) { clip-path: ellipse(117.5% 80% at 0% 20%); }
+      @media (max-width: (@tablet - 1)) { clip-path: ellipse(170% 70% at 0% 30%); }
+    }
+    &-bottom-left {
+      @media (min-width: @tablet) { clip-path: ellipse(117.5% 80% at 100% 20%) }
+      @media (max-width: (@tablet - 1)) { clip-path: ellipse(170% 70% at 100% 30%); }
+    }
+    &-top-right {
+      @media (min-width: @tablet) { clip-path: ellipse(170% 90% at 0% 90%); }
+      @media (max-width: (@tablet - 1)) { clip-path: ellipse(250% 90% at 0% 90%); }
+    }
+    &-top-left {
+      @media (min-width: @tablet) { clip-path: ellipse(170% 90% at 100% 90%); }
+      @media (max-width: (@tablet - 1)) { clip-path: ellipse(250% 90% at 92.5% 90%); }
+    }
+  }

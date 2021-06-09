@@ -1,0 +1,191 @@
+/*  content-expander-v2.component.less
+
+    Note: Content Expander v2 (pillars)
+
+    Per Build Guide:
+
+    "Within some sections, content is organized into 
+    sections with a new layout feature called "Pillars." 
+    This is a new type of expander, and it is intended to 
+    be designed 2- or 3-across in a row. The visible content 
+    will typically include an image, a headline, and possibly 
+    a short description. A button below the pillar content 
+    reveals full-width content related to that pillar. Much 
+    like modal content, this expandable content is built in 
+    a separate column control. The expandable content column 
+    controls should be added to the page in the same order as 
+    the pillars; that is how the content is aligned with the 
+    pillar it is associated with."
+
+    ================================================== */
+
+    // Column Control (container)
+    .content-tile-expander-link-v2 {
+      
+      @media (min-width: @tablet) {
+        // Double-up for existing instances using old cq:styles
+        &.content-tile-expander-link-v2 {padding-bottom: 30px; }
+      }
+
+      // Individual column(s)
+      [class*="col-"].col-12 { padding-bottom: 30px; }
+
+      // Content tiles within
+      .content-tile-container {
+        height: 100%;
+        position: inherit;
+      }
+
+      figcaption, .content-tile__figcaption {
+        text-align: center;
+        margin: 30px 0 0 0;
+      }
+
+      // Title element of Content Tile(s)
+      .content-tile__title {
+        font-size: @typesize-h3;
+        font-weight: @typeweight--default;
+        color: @color--soft-black;
+      }
+
+      // Button control (trigger)
+      .content-tile-expander-button {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border: none;
+        border-radius: 100%;
+        background: @color--cappuccino;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        margin: 30px auto 0;
+        .transition(0.3s);
+        -webkit-transform: scale(1) translateZ(0);
+        transform: scale(1) translateZ(0);
+        position: relative;
+        padding: 0;
+        margin: 20px auto 0 auto;
+        z-index: 1;
+
+        // Icon inside button
+        i {
+          font-style: normal;
+          display: -webkit-inline-box;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          height: 16px;
+          width: 10px;
+          background-image: url("@{image-path}/
+icon-chevron-down--white.svg");
+          background-repeat: no-repeat;
+          background-size: 10px 16px;
+          background-attachment: scroll;
+          -webkit-transform: scale(1) translateZ(0);
+          transform: scale(1) translateZ(0);
+          .transition(0.15s);
+        }
+
+        &:hover, &:focus {
+          -webkit-transform:scale(1.2);
+          transform:scale(1.2);
+        }
+
+        &.active {
+          -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+
+          @media (min-width: @tablet) {
+            -webkit-transform: scale(2);
+            transform: scale(2);
+          }
+
+          i {
+            -webkit-transform: rotate(180deg) scale(1.2);
+            transform: rotate(180deg) scale(1.2);
+          }
+
+        }
+
+        @media (min-width: @tablet) {
+          position: absolute;
+          bottom: -30px;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+
+        @media (min-width: @tablet) and (max-width: @screen-md) { margin: 0px auto 0; }
+
+      } // End Button control (trigger)
+
+      @media (max-width: (@tablet - 1)) { // Column Control (container)
+        padding-top: 30px;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+      }
+
+    }
+
+    // Column Control Content (target)
+    .column-control-expander-content-v2 {
+      border-top: 6px @color--cappuccino solid;
+      clear: both;
+      width: 100%;
+      padding: 45px 20px;
+      margin-top: 12px; // "magic number" = ensures that button aligns vertically with 6px stroke
+
+      @media (max-width: (@tablet - 1)) {
+        padding-bottom: 15px;
+        margin-top: -48px; // "magic number" = 45px + 3px compensation for the diff in scale transform (1.5 vs 1.2); helps align control with stroke
+      }
+
+    }
+
+    // Column Control (link content container)
+    .column-control-expander-links-v2 {
+      >.row,
+      >.container > .row {
+        .flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        @media (max-width: (@tablet - 1)) {
+          .col-12 {
+            &:first-of-type { order: 1; }
+            &:nth-of-type(2) { order: 3; }
+            &:nth-of-type(3) { order: 5; }
+            &:nth-of-type(4) { order: 7; }
+            &:nth-of-type(5) { order: 9; }
+            &:nth-of-type(6) { order: 11; }
+          }
+
+          section {
+            &:first-of-type { order: 2; }
+            &:nth-of-type(2) { order: 4; }
+            &:nth-of-type(3) { order: 6; }
+            &:nth-of-type(4) { order: 8; }
+            &:nth-of-type(5) { order: 10; }
+            &:nth-of-type(6) { order: 12; }
+          }
+
+        }
+
+      }
+
+    }
+
+    @media print {
+      .column-control-expander-content-v2 { 
+        display: block !important;
+      }
+      .content-tile-expander-link-v2 {
+        display: none !important;
+      }
+    }

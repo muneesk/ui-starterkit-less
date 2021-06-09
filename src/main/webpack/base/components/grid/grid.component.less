@@ -1,0 +1,15 @@
+/* grid.component.less
+
+  Note: nothing exciting here. Not CSS Grid.
+  Some existing AEM component that renders div.grid
+  with a child .container or .container-fluid -- but
+  no Bootstrap columns inside. Not sure what it is
+  used for.
+
+  ================================================== */
+  .grid {
+    .py-60;
+    &:first-of-type {
+      @media (min-width: @mobile) { .pt-90; }
+    }
+  }

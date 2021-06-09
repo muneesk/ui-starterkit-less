@@ -1,0 +1,99 @@
+/* current-share-price.component.less
+
+  ================================================== */
+  .current-share-price {
+    background: @color--chalk-white;
+    border-top: 4px solid @color--lime-green;
+    @media (min-width: (@mobile + 1)) { padding: 30px; }
+    @media (max-width: @mobile) { padding: 30px 0; }
+
+    h4 {
+      font-size: @typesize-h5;
+      padding: 0 0 20px 0;
+      margin: 0;
+    }
+
+    p {
+      font-size: @typesize-minor;
+      color: @color--grey-35;
+      margin: 20px 0;
+      &:last-of-type { margin-bottom: 0; }
+    }
+
+    dl {
+      .flex;
+      -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+      align-items: baseline;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      border-bottom: 1px solid @color--grey-75;
+      padding: 0;
+      margin: 0;
+      &:first-of-type {
+        border-bottom: none;
+        padding-bottom: 0;
+        dt:first-of-type { padding: 0; }
+      }
+      &:nth-of-type(2), &:nth-of-type(3) {
+        @media all and (min-width: (@mobile + 200)) and (max-width: (@tablet + 1)), all and (max-width: @mobile) {
+          display: block;
+          width: 100%;
+          text-align: right;
+          dt:first-of-type { padding-bottom: 0; }
+          .share-price-lse, .share-price-nyse { padding-top: 0; } 
+          .share-price-lse-change, .share-price-nyse-change {
+            float: right;
+            padding-top: 5px;
+            padding-bottom: 0;
+          }
+        }
+      }
+    } // End <dl>
+
+    dt, dd {
+      line-height: @leading--1-4;
+      text-align: right;
+      display: inline-block;
+      width: 33.333%;
+      padding: 15px;
+      margin: 0;
+      @media (max-width: @mobile) { padding: 15px 0; }
+    }
+
+    dt {
+      font-size: @typesize-minor;
+      color: @color--grey-15;
+      text-align: left;
+      @media (max-width: @tablet-landscape) { font-size: @typesize-milli; }
+    }
+
+    dd {
+      font-family: @typefamily-serif;
+      -webkit-font-feature-settings: "lnum" 0;
+      font-feature-settings: "lnum" 0;
+    }
+
+  }
+
+  .share-price-lse, .share-price-nyse {
+    font-family: @typefamily-serif;
+    font-size: @typesize-h3;
+    line-height: @leading--1;
+    font-feature-settings: "lnum" 0;
+    direction: rtl;
+    color: @color--pearson-blue-link;
+    @media (max-width: @tablet-landscape) { font-size: @typesize-h4; }
+  }
+ 
+  .share-price-lse-change, .share-price-nyse-change {
+    font-size: @typesize-h5;
+    color: @color--grey-15;
+    direction: rtl;
+  }
+
+  .title-price, .title-change {
+    text-align: right;
+    padding: 0 15px 15px 0;
+  }
