@@ -71,7 +71,7 @@ module.exports = {
                         loader: 'css-loader'
                     },
                     {
-                        loader: 'less-loader'
+                        loader: 'sass-loader'
                     },
                     {
                         loader: "webpack-import-glob-loader",
